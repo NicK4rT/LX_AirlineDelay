@@ -1,0 +1,1057 @@
+```{r}
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+library(gt)
+
+
+load("airline_delay.rda")
+
+```
+
+```{r}
+#Global variables:
+
+custom_palette <- c("#a65156","#75aa69","#3c658c","#c7564f","#d1941d","#3b8d88","#cadeed","#fffefd","#3f2a29","#e04a30")
+
+#Column names
+
+arr_columns <- c("normal.ct","arr_del15.ct","arr_cancelled.ct","arr_diverted.ct")
+ct_columns <- c("carrier.ct","weather.ct","nas.ct","security.ct","late_aircraft.ct")
+del_columns <- c("carrier.delay","weather.delay","nas.delay","security.delay","late_aircraft.delay")
+
+arr_total_columns <- c("normal.ct_total","arr_del15.ct_total","arr_cancelled.ct_total","arr_diverted.ct_total")
+ct_total_columns <- c("carrier.ct_total","weather.ct_total","nas.ct_total","security.ct_total","late_aircraft.ct_total")
+del_total_columns <- c("carrier.delay_total","weather.delay_total","nas.delay_total","security.delay_total","late_aircraft.delay_total")
+
+pivot_ct_columns <- c("normal.ct",all_of(ct_columns), "arr_cancelled.ct","arr_diverted.ct")
+pivot_ct_p_columns <- c(paste(pivot_ct_columns, "_p", sep = ""))
+pivot_ct_pr_columns <- c(paste(ct_columns, "_pr", sep = ""))
+pivot_del_columns <- c(all_of(del_columns))
+pivot_del_p_columns <- c(paste(pivot_del_columns, "_p", sep = ""))
+pivot_columns_ct <- c(all_of(pivot_ct_columns),all_of(pivot_ct_p_columns), all_of(pivot_ct_pr_columns),all_of(pivot_del_columns),all_of(pivot_del_p_columns))
+
+pivot_ct_columns2 <- c("normal.ct","arr_del15.ct", "arr_cancelled.ct","arr_diverted.ct")
+pivot_ct_p_columns2 <- c(paste(pivot_ct_columns2, "_p", sep = ""))
+pivot_del_columns2 <- c("arr.delay")#This is not included
+pivot_columns <- c(all_of(pivot_ct_columns2), all_of(pivot_ct_p_columns2))
+  
+rm(pivot_ct_columns, pivot_ct_p_columns, pivot_ct_pr_columns, pivot_del_columns, pivot_del_p_columns,pivot_ct_columns2 ,pivot_ct_p_columns2 , pivot_del_columns2)
+
+```
+
+```{r}
+calculate_percentage <- function(data, divisor_column, numerator_columns, addendum) {
+  for (col_name in numerator_columns) {
+    new_col_name <- paste(col_name, addendum, sep = "")
+    data <- data %>%
+      mutate(!!new_col_name := !!sym(col_name) / !!sym(divisor_column))
+    rm(new_col_name)
+  }
+  return(data)
+}
+
+calculate_percentages_init <- function(df){
+
+df <- calculate_percentage(df, "arr_flights.ct", arr_columns, "_p")
+df <- calculate_percentage(df, "arr_flights.ct", ct_columns, "_p")
+df <- calculate_percentage(df, "arr_del15.ct", ct_columns, "_pr")
+df <- calculate_percentage(df, "arr.delay", del_columns, "_p")
+
+
+return(df)
+}
+
+calculate_percentages_summary <- function(df){
+
+df <- calculate_percentage(df, "arr_flights.ct_total", arr_total_columns, "_p")
+df <- calculate_percentage(df, "arr_flights.ct_total", ct_total_columns, "_p")
+df <- calculate_percentage(df, "arr_del15.ct_total", ct_total_columns, "_pr")
+df <- calculate_percentage(df, "arr.delay_total", del_total_columns,"_p")
+
+
+return(df)
+}
+
+```
+
+```{r}
+summary_function <- function(df){
+  summary_stats <- df %>%
+    group_by(year) %>%
+    summarise(across(where(is.numeric), list(total = ~sum(., na.rm = TRUE), mean = ~mean(., na.rm = TRUE), median = ~median(., na.rm = TRUE), sd = ~sd(., na.rm = TRUE), max = ~max(., na.rm = TRUE), min = ~min(., na.rm = TRUE)), .names = "{.col}_{.fn}"),
+              airport_n = n_distinct(airport),
+              carrier_n = n_distinct(carrier)) %>%
+    rename(entries = month_total) %>%
+    mutate(entries = entries/12) %>%
+    select(-contains("_p_"), -contains("_pr_"), -contains("month_"))
+    
+  return(summary_stats)
+}
+
+summary_function_2 <- function(df){
+  summary_stats <- df %>%
+    group_by(year) %>%
+    summarise(across(where(is.numeric), list(total = ~sum(., na.rm = TRUE), mean = ~mean(., na.rm = TRUE), median = ~median(., na.rm = TRUE), sd = ~sd(., na.rm = TRUE), max = ~max(., na.rm = TRUE), min = ~min(., na.rm = TRUE)), .names = "{.col}_{.fn}")) %>%
+    select(-contains("_p_"), -contains("_pr_"), -contains("month_"))
+    
+  return(summary_stats)
+}
+
+```
+
+
+
+```{r}
+#All
+airline_delay_all <- distinct(airline_delay) %>% 
+  mutate_all(~replace(., is.na(.), 0))
+
+airline_delay_all <- na.omit(airline_delay_all) %>% 
+  mutate(normal.ct = arr_flights - arr_del15 - arr_cancelled - arr_diverted) %>% 
+  mutate(normal.ct_p = (arr_flights - arr_del15 - arr_cancelled - arr_diverted)/arr_flights) %>%
+rename(arr_flights.ct=arr_flights,
+       arr_del15.ct = arr_del15,
+       carrier.ct = carrier_ct,
+       weather.ct = weather_ct,
+       nas.ct = nas_ct,
+       security.ct = security_ct,
+       late_aircraft.ct = late_aircraft_ct,
+       arr_cancelled.ct= arr_cancelled,
+       arr_diverted.ct = arr_diverted,
+       arr.delay = arr_delay,
+       carrier.delay = carrier_delay,
+       weather.delay = weather_delay,
+       nas.delay = nas_delay,
+       security.delay=security_delay,
+       late_aircraft.delay = late_aircraft_delay
+       )
+
+airline_delay_all_p <- calculate_percentages_init(airline_delay_all)
+airline_delay_all_p_summary <- calculate_percentages_summary(summary_function(airline_delay_all_p))
+
+```
+
+```{r}
+#Group by airport
+airline_delay_airport <- airline_delay_all %>%
+  group_by(year, airport, airport_name) %>%
+  summarise(across(where(is.numeric), sum, na.rm = TRUE)) %>%
+  mutate(airlines = month/12) %>%
+  select(-month)
+
+airline_delay_airport_p <- calculate_percentages_init(airline_delay_airport)
+airline_delay_airport_p_summary <- calculate_percentages_summary(summary_function_2(airline_delay_airport_p)) %>%
+  select(-contains("airlines"))
+
+```
+
+```{r}
+#Group by airline
+airline_delay_airline <- airline_delay_all %>%
+  group_by(year, carrier, carrier_name) %>%
+  summarise(across(where(is.numeric), sum, na.rm = TRUE)) %>%
+  mutate(airports = month/12) %>%
+  select(-month)
+
+airline_delay_airline_p <- calculate_percentages_init(airline_delay_airline)
+airline_delay_airline_p_summary <- calculate_percentages_summary(summary_function_2(airline_delay_airline_p)) %>%
+  select(-contains("airports"))
+
+```
+
+
+```{r}
+#Plots
+save_plot_function <- function(plot, name, filepath){
+    filename <- paste0(name, ".png")
+    filepath <- file.path(filepath, filename)
+    ggsave(filepath, plot, width = 10, height = 8)
+}
+
+pivot_function <- function(df, column_list){
+  df <- df %>%  
+  pivot_longer(cols=all_of(column_list), names_to = c("delay_type", ".value"), 
+    names_sep = "\\.") %>%
+    select(-contains("."))
+  return(df)
+}
+
+airline_delay_airline_p_long_ct <- pivot_function(airline_delay_airline_p, pivot_columns_ct)
+airline_delay_airline_p_long <- pivot_function(airline_delay_airline_p, pivot_columns)
+
+airline_delay_airport_p_long_ct <- pivot_function(airline_delay_airport_p, pivot_columns_ct)
+airline_delay_airport_p_long <- pivot_function(airline_delay_airport_p, pivot_columns)
+
+
+box_plot_function <- function(df, xv, yv, wrapv, fillv, xlabel, ylabel, legendbreaks, legendlabels, rounding, scaling, plotname, path, legend_title, plottitle){
+  box_plot <- ggplot(df, aes(x = !!sym(xv), y = !!sym(yv), fill = !!sym(fillv), label = !!sym(yv))) + 
+          theme_light() +
+          geom_bar(stat = "identity", position = "stack") +
+          facet_wrap(vars(!!sym(wrapv))) +
+          labs(title = plottitle,
+               x = xlabel,
+               y = ylabel,
+               fill = "Category") +
+          geom_text_repel(aes(label = sprintf(rounding,  !!sym(yv) * scaling), segment.size = 0.1), size = 1, position = position_stack(vjust = 0.5), direction = "both", box.padding = 0, check_overlap = FALSE, force = 1, force_pull = 10) + 
+          scale_fill_manual(name=legend_title,
+                              breaks=legendbreaks,
+                              labels=legendlabels,
+                              values = custom_palette) +
+          scale_x_continuous(breaks = c(2019, 2020))
+  save_plot_function(box_plot,plotname,path)
+  return(box_plot)
+}
+
+box_plot_individual_function <- function(df, xv, yv, wrapv, fillv, xlabel, ylabel, legendbreaks, legendlabels, rounding, scaling, plotname, subtitle, title, path){
+  plotnames <- df %>% 
+      distinct(!!sym(plotname)) %>%
+      pull(!!sym(plotname))
+  subtitle <- df %>% 
+      distinct(!!sym(subtitle)) %>%
+      pull(!!sym(subtitle))
+  plot_list <- list()
+  i <- 1
+  for (names in plotnames) {
+    box_plot <- ggplot(df[df[[plotname]] == names, ], aes(x = !!sym(xv), y = !!sym(yv), fill = !!sym(fillv), label = !!sym(yv))) + 
+            theme_light() +
+            geom_bar(stat = "identity", position = "stack") +
+            labs(title = title,
+                 subtitle = subtitle[i],
+                 x = xlabel,
+                 y = ylabel,
+                 fill = "Category") +
+            geom_text_repel(aes(label = sprintf(rounding,  !!sym(yv) * scaling), segment.size = 0.1), size = 5, position = position_stack(vjust = 0.5), direction = "y", box.padding = 0, check_overlap = FALSE, force = 1, force_pull = 100) + 
+            scale_fill_manual(name="Flight Status",
+                                breaks=legendbreaks,
+                                labels=legendlabels,
+                                values = custom_palette) +
+            scale_x_continuous(breaks = c(2019, 2020))
+    plot_list[[i]] <- box_plot
+    save_plot_function(box_plot,paste0(names,"_",yv),path)
+    i <- i + 1
+  }
+  return(plot_list)
+}
+
+```
+
+```{r}
+#Flight Delay per Type
+
+legendnames <- c("carrier", "weather", "nas", "security", "late_aircraft")
+legendlabels <- c("Carrier", "Weather", "NAS", "Security", "Late Aircraft")
+
+#airline
+plot_airline <- box_plot_function(na.omit(airline_delay_airline_p_long_ct), "year", "delay", "carrier_name", "delay_type", "Airlines", "Delay per Type", legendnames, legendlabels, "%i", 1, "airline", "plots/delay/airline", "Delay Type", "Delay Breakdown [abs] per Airline")
+plot_airline_p <- box_plot_function(na.omit(airline_delay_airline_p_long_ct), "year", "delay_p", "carrier_name", "delay_type", "Airlines", "% of Delay", legendnames, legendlabels, "%0.2f %%", 100, "airline_p", "plots/delay/airline", "Delay Type", "Delay Breakdown [%] per Airline")
+
+#airport #unreadable
+#plot_airport <- box_plot_function(na.omit(airline_delay_airport_p_long_ct), "year", "delay", "airport", "delay_type", "Airports", "Delay per Type", legendnames, legendlabels, "%0.2f", 1, "airport", "plots/delay/airport", "Delay Type", "Delay Breakdown [abs] per Airport")
+#plot_airport_p <- box_plot_function(na.omit(airline_delay_airport_p_long_ct), "year", "delay_p", "airport", "delay_type", "Airports", "% of Delay", legendnames, legendlabels, "%0.2f %%", 100, "airport_p", "plots/delay/airport", "Delay Type", "Delay Breakdown [%] per Airport")
+
+#airlines
+airline_name_list <- airline_delay_airline_p_long %>% 
+  group_by(carrier,carrier_name) %>% 
+  distinct(carrier_name)
+  
+plot_airline_list <- box_plot_individual_function(na.omit(airline_delay_airline_p_long_ct), "year", "delay", "carrier_name", "delay_type", "Year", "Delay per Type", legendnames, legendlabels,  "%i", 1, "carrier", "carrier_name", "Delay Breakdown [abs]", "plots/delay/airline")
+plot_airline_p_list <- box_plot_individual_function(na.omit(airline_delay_airline_p_long_ct), "year", "delay_p", "carrier_name", "delay_type", "Year", "% of Delay", legendnames, legendlabels,  "%0.2f %%", 100, "carrier", "carrier_name", "Delay Breakdown [%]", "plots/delay/airline")
+
+#airports
+airport_name_list <- airline_delay_airport_p_long %>% 
+  group_by(airport,airport_name) %>% 
+  distinct(airport_name)
+
+plot_airport_list <- box_plot_individual_function(na.omit(airline_delay_airport_p_long_ct), "year", "delay", "airport", "delay_type", "Year", "Delay per Type", legendnames, legendlabels,  "%0.2f", 1, "airport", "airport_name", "Delay Breakdown [abs]", "plots/delay/airport")
+plot_airport_p_list <- box_plot_individual_function(na.omit(airline_delay_airport_p_long_ct), "year", "delay_p", "airport", "delay_type", "Year", "% of Delay", legendnames, legendlabels,  "%0.2f %%", 100, "airport", "airport_name", "Delay Breakdown [%]", "plots/delay/airport")
+
+rm(legendnames, legendlabels, plot_airline, plot_airline_p, plot_airport, plot_airport_p, plot_airline_list, plot_airline_p_list, plot_airport_list, plot_airport_p_list)
+```
+
+```{r}
+#Flight No. per Status Type detailed delay
+
+legendnames <- c("arr_cancelled", "carrier", "weather", "nas", "security", "late_aircraft", "arr_diverted", "normal")
+legendlabels <- c("Cancelled", "Carrier Delay", "Weather Delay", "NAS Delay", "Security Delay", "Late Aircraft Delay", "Diverted", "Normal")
+
+#airline
+plot_airline <- box_plot_function(airline_delay_airline_p_long_ct, "year", "ct", "carrier_name", "delay_type", "Airlines", "No. of Flights", legendnames, legendlabels, "%0.2f", 1, "airline", "plots/ct_d/airline", "Flight Status", "Arrivals, Irrops and Delays Breakdown [abs] per Airline")
+plot_airline_p <- box_plot_function(airline_delay_airline_p_long_ct, "year", "ct_p", "carrier_name", "delay_type", "Airlines", "% of Flights", legendnames, legendlabels, "%0.2f %%", 100, "airline_p", "plots/ct_d/airline", "Flight Status", "Arrivals, Irrops and Delays Breakdown [%] per Airline")
+
+#airport #unreadable
+#plot_airport <- box_plot_function(airline_delay_airport_p_long_ct, "year", "ct", "airport", "delay_type", "Airports", "No. of Flights", legendnames, legendlabels, "%0.2f", 1, "airport", "plots/ct_d/airport", "Flight Status", "Arrivals, Irrops and Delays Breakdown [abs] per Airport")
+#plot_airport_p <- box_plot_function(airline_delay_airport_p_long_ct, "year", "ct_p", "airport", "delay_type", "Airports", "% of Flights", legendnames, legendlabels, "%0.2f %%", 100, "airport_p", "plots/ct_d/airport", "Flight Status", "Arrivals, Irrops and Delays Breakdown [%] per Airport")
+
+#airlines
+airline_name_list <- airline_delay_airline_p_long %>% 
+  group_by(carrier,carrier_name) %>% 
+  distinct(carrier_name)
+  
+plot_airline_list <- box_plot_individual_function(airline_delay_airline_p_long_ct, "year", "ct", "carrier_name", "delay_type", "Year", "No. of Flights", legendnames, legendlabels,  "%0.2f", 1, "carrier", "carrier_name", "Arrivals, Irrops and Delays Breakdown [abs]", "plots/ct_d/airline")
+plot_airline_p_list <- box_plot_individual_function(airline_delay_airline_p_long_ct, "year", "ct_p", "carrier_name", "delay_type", "Year", "% of Flights", legendnames, legendlabels,  "%0.2f %%", 100, "carrier", "carrier_name", "Arrivals, Irrops and Delays Breakdown [%]", "plots/ct_d/airline")
+
+#airports
+airport_name_list <- airline_delay_airport_p_long %>% 
+  group_by(airport,airport_name) %>% 
+  distinct(airport_name)
+
+plot_airport_list <- box_plot_individual_function(airline_delay_airport_p_long_ct, "year", "ct", "airport", "delay_type", "Year", "No. of Flights", legendnames, legendlabels,  "%0.2f", 1, "airport", "airport_name", "Arrivals, Irrops and Delays Breakdown [abs]", "plots/ct_d/airport")
+plot_airport_p_list <- box_plot_individual_function(airline_delay_airport_p_long_ct, "year", "ct_p", "airport", "delay_type", "Year", "% of Flights", legendnames, legendlabels,  "%0.2f %%", 100, "airport", "airport_name", "Arrivals, Irrops and Delays Breakdown [%]", "plots/ct_d/airport")
+
+rm(legendnames, legendlabels, plot_airline, plot_airline_p, plot_airport, plot_airport_p, plot_airline_list, plot_airline_p_list, plot_airport_list, plot_airport_p_list)
+```
+
+```{r}
+#Flight No. per Status Type
+
+legendnames <- c("arr_cancelled", "arr_del15", "arr_diverted", "normal")
+legendlabels <- c("Cancelled", "Delayed", "Diverted", "Normal")
+
+#airline
+plot_airline <- box_plot_function(airline_delay_airline_p_long, "year", "ct", "carrier_name", "delay_type", "Airlines", "No. of Flights", legendnames, legendlabels, "%i", 1, "airline", "plots/ct/airline", "Flight Status", "Arrivals, Irrops and Delays Breakdown [abs] per Airline")
+plot_airline_p <- box_plot_function(airline_delay_airline_p_long, "year", "ct_p", "carrier_name", "delay_type", "Airlines", "% of Flights", legendnames, legendlabels, "%0.2f %%", 100, "airline_p", "plots/ct/airline", "Flight Status", "Arrivals, Irrops and Delays Breakdown [%] per Airline")
+
+#airport #unreadable
+#plot_airport <- box_plot_function(airline_delay_airport_p_long, "year", "ct", "airport", "delay_type", "Airports", "No. of Flights", legendnames, legendlabels, "%i", 1, "airport", "plots/ct/airport", "Flight Status", "Arrivals, Irrops and Delays Breakdown [abs] per Airport")
+#plot_airport_p <- box_plot_function(airline_delay_airport_p_long, "year", "ct_p", "airport", "delay_type", "Airports", "% of Flights", legendnames, legendlabels, "%0.2f %%", 100, "airport_p", "plots/ct/airport", "Flight Status", "Arrivals, Irrops and Delays Breakdown [%] per Airport")
+
+#airlines
+airline_name_list <- airline_delay_airline_p_long %>% 
+  group_by(carrier,carrier_name) %>% 
+  distinct(carrier_name)
+  
+plot_airline_list <- box_plot_individual_function(airline_delay_airline_p_long, "year", "ct", "carrier_name", "delay_type", "Year", "No. of Flights", legendnames, legendlabels,  "%i", 1, "carrier", "carrier_name", "Arrivals, Irrops and Delays Breakdown [abs]", "plots/ct/airline")
+plot_airline_p_list <- box_plot_individual_function(airline_delay_airline_p_long, "year", "ct_p", "carrier_name", "delay_type", "Year", "% of Flights", legendnames, legendlabels,  "%0.2f %%", 100, "carrier", "carrier_name", "Arrivals, Irrops and Delays Breakdown [%]", "plots/ct/airline")
+
+#airports
+airport_name_list <- airline_delay_airport_p_long %>% 
+  group_by(airport,airport_name) %>% 
+  distinct(airport_name)
+
+plot_airport_list <- box_plot_individual_function(airline_delay_airport_p_long, "year", "ct", "airport", "delay_type", "Year", "No. of Flights", legendnames, legendlabels,  "%i", 1, "airport", "airport_name", "Arrivals, Irrops and Delays Breakdown [abs]", "plots/ct/airport")
+plot_airport_p_list <- box_plot_individual_function(airline_delay_airport_p_long, "year", "ct_p", "airport", "delay_type", "Year", "% of Flights", legendnames, legendlabels,  "%0.2f %%", 100, "airport", "airport_name", "Arrivals, Irrops and Delays Breakdown [%]", "plots/ct/airport")
+
+rm(legendnames, legendlabels, plot_airline, plot_airline_p, plot_airport, plot_airport_p, plot_airline_list, plot_airline_p_list, plot_airport_list, plot_airport_p_list)
+```
+
+```{r}
+#Tables
+
+#airline
+airline_delay_airline_p_gt <- airline_delay_airline_p  %>%
+  group_by(year,carrier_name) %>%
+  mutate(carrier_name = paste0(carrier_name, " (", carrier, ")")) %>%
+  select(-carrier) %>%
+  mutate_at(vars(contains("_p") | contains("_pr")), ~ sprintf("%0.2f%%", as.numeric(.)*100)) %>%
+  select(-contains("_pr"))
+
+table_airline <- gt(airline_delay_airline_p_gt, rowname_col = "year", groupname_col = "carrier_name", row_group_as_column = TRUE) |> 
+  opt_stylize(style = 3) |>
+  tab_header(
+    title = "Arrivals, Irrops, Delay and Delay Breakdown per Airline",
+    subtitle = "Depicted in Absolute and Relative Terms, Comparing Data from December 2019 to December 2020"
+  ) |>
+  cols_move(
+    columns = c("airports", "arr_flights.ct", "normal.ct", "normal.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p",	"arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p"),
+    after = c("airports")
+  ) |>
+  
+  tab_spanner(
+    label = "All",
+    columns = c("arr_flights.ct")
+  ) |>
+  tab_spanner(
+    label = "Normal",
+    columns = c("normal.ct", "normal.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Cancelled",
+    columns = c("arr_cancelled.ct", "arr_cancelled.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Diverted",
+    columns = c("arr_diverted.ct", "arr_diverted.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delayed",
+    columns = c("arr_del15.ct", "arr_del15.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Carrier Delayed",
+    columns = c("carrier.ct", "carrier.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Weather Delayed",
+    columns = c("weather.ct", "weather.ct_p")
+  ) |>
+  tab_spanner(
+    label = "NAS Delayed",
+    columns = c("nas.ct", "nas.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Security Delayed",
+    columns = c("security.ct", "security.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delayed",
+    columns = c("late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Total",
+    columns = c("arr.delay")
+  ) |>
+  tab_spanner(
+    label = "Carrier",
+    columns = c("carrier.delay",	"carrier.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Weather",
+    columns = c("weather.delay",	"weather.delay_p")
+  ) |>
+  tab_spanner(
+    label = "NAS",
+    columns = c("nas.delay", "nas.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Security",
+    columns = c("security.delay", "security.delay_p")
+  ) |>
+  tab_spanner(
+    label = "late Aircraft",
+    columns = c("late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  
+  tab_spanner(
+    label = "Arrivals",
+    columns = c("arr_flights.ct", "normal.ct", "normal.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delay",
+    columns = c("arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  cols_label(
+    airports = "Airports",
+    ends_with(".ct") ~ "[abs]",
+    ends_with(".ct_p") ~ "[%]",
+    ends_with(".delay") ~ "[abs]",
+    ends_with(".delay_p") ~ "[%]"
+  )
+
+table_airline
+gtsave(table_airline, file = "tables/airline.html")
+gtsave(table_airline, file = "tables/airline.png")
+gtsave(table_airline, file = "tables/airline.docx")
+
+#airline_summary
+#Blank, only interesting thing could be the average % of delays.
+  
+```
+
+```{r}
+
+#airport
+airline_delay_airport_p_gt <- airline_delay_airport_p  %>%
+  group_by(year,airport_name) %>%
+  mutate(airport_name = paste0(airport_name, " (", airport, ")"))  %>%
+  select(-airport) %>%
+  mutate_at(vars(contains("_p") | contains("_pr")), ~ sprintf("%0.2f%%", as.numeric(.)*100)) %>%
+  select(-contains("_pr"))
+
+table_airport <- gt(airline_delay_airport_p_gt, rowname_col = "year", groupname_col = "airport_name", row_group_as_column = TRUE) |> 
+  opt_stylize(style = 3) |>
+  tab_header(
+    title = "Arrivals, Irrops, Delay and Delay Breakdown per Airport",
+    subtitle = "Depicted in Absolute and Relative Terms, Comparing Data from December 2019 to December 2020"
+  ) |>
+  cols_move(
+    columns = c("arr_flights.ct", "normal.ct", "normal.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p",	"arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p"),
+    after = c("arr_flights.ct")
+  ) |>
+  
+  
+  tab_spanner(
+    label = "All",
+    columns = c("arr_flights.ct")
+  ) |>
+  tab_spanner(
+    label = "Normal",
+    columns = c("normal.ct", "normal.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Cancelled",
+    columns = c("arr_cancelled.ct", "arr_cancelled.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Diverted",
+    columns = c("arr_diverted.ct", "arr_diverted.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delayed",
+    columns = c("arr_del15.ct", "arr_del15.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Carrier Delayed",
+    columns = c("carrier.ct", "carrier.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Weather Delayed",
+    columns = c("weather.ct", "weather.ct_p")
+  ) |>
+  tab_spanner(
+    label = "NAS Delayed",
+    columns = c("nas.ct", "nas.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Security Delayed",
+    columns = c("security.ct", "security.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delayed",
+    columns = c("late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Total",
+    columns = c("arr.delay")
+  ) |>
+  tab_spanner(
+    label = "Carrier",
+    columns = c("carrier.delay",	"carrier.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Weather",
+    columns = c("weather.delay",	"weather.delay_p")
+  ) |>
+  tab_spanner(
+    label = "NAS",
+    columns = c("nas.delay", "nas.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Security",
+    columns = c("security.delay", "security.delay_p")
+  ) |>
+  tab_spanner(
+    label = "late Aircraft",
+    columns = c("late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  
+  tab_spanner(
+    label = "Arrivals",
+    columns = c("arr_flights.ct", "normal.ct", "normal.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delay",
+    columns = c("arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  cols_label(
+    ends_with(".ct") ~ "[abs]",
+    ends_with(".ct_p") ~ "[%]",
+    ends_with(".delay") ~ "[abs]",
+    ends_with(".delay_p") ~ "[%]"
+  )
+  
+
+table_airport
+gtsave(table_airport, file = "tables/airport.html")
+gtsave(table_airport, file = "tables/airport.png")
+gtsave(table_airport, file = "tables/airport.docx")
+
+
+#airport_summary_max
+
+airline_delay_airport_p_gt_max <- airline_delay_airport_p %>%
+  filter(year %in% c("2019")) %>%
+  arrange(desc(arr_flights.ct)) %>%
+  mutate(airport_name2 = paste0(airport_name, " (", airport, ")"))
+
+largest_airports2 <- head(airline_delay_airport_p_gt_max$airport_name, 20)
+largest_airports <- head(airline_delay_airport_p_gt_max$airport_name2, 20)
+
+rm(airline_delay_airport_p_gt_max)
+
+airline_delay_airport_p_gt_max <- airline_delay_airport_p %>%
+  filter(airport_name %in% largest_airports2) %>%
+  group_by(airport_name) %>%
+  select(-airport)
+
+rm(largest_airports2)
+
+table_airport <- gt(airline_delay_airport_p_gt_max, rowname_col = "year", groupname_col = "airport_name", row_group_as_column = TRUE) |> 
+  opt_stylize(style = 3) |>
+  tab_header(
+    title = "Arrivals, Irrops, Delay and Delay Breakdown per Largest Airport",
+    subtitle = "Depicted in Absolute and Relative Terms, Comparing Data from December 2019 to December 2020"
+  ) |>
+  cols_move(
+    columns = c("arr_flights.ct", "normal.ct", "normal.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p",	"arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p"),
+    after = c("arr_flights.ct")
+  ) |>
+  
+  
+  tab_spanner(
+    label = "All",
+    columns = c("arr_flights.ct")
+  ) |>
+  tab_spanner(
+    label = "Normal",
+    columns = c("normal.ct", "normal.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Cancelled",
+    columns = c("arr_cancelled.ct", "arr_cancelled.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Diverted",
+    columns = c("arr_diverted.ct", "arr_diverted.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delayed",
+    columns = c("arr_del15.ct", "arr_del15.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Carrier Delayed",
+    columns = c("carrier.ct", "carrier.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Weather Delayed",
+    columns = c("weather.ct", "weather.ct_p")
+  ) |>
+  tab_spanner(
+    label = "NAS Delayed",
+    columns = c("nas.ct", "nas.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Security Delayed",
+    columns = c("security.ct", "security.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delayed",
+    columns = c("late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Total",
+    columns = c("arr.delay")
+  ) |>
+  tab_spanner(
+    label = "Carrier",
+    columns = c("carrier.delay",	"carrier.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Weather",
+    columns = c("weather.delay",	"weather.delay_p")
+  ) |>
+  tab_spanner(
+    label = "NAS",
+    columns = c("nas.delay", "nas.delay_p")
+  ) |>
+  tab_spanner(
+    label = "Security",
+    columns = c("security.delay", "security.delay_p")
+  ) |>
+  tab_spanner(
+    label = "late Aircraft",
+    columns = c("late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  
+  tab_spanner(
+    label = "Arrivals",
+    columns = c("arr_flights.ct", "normal.ct", "normal.ct_p", "arr_diverted.ct", "arr_diverted.ct_p", "arr_cancelled.ct", "arr_cancelled.ct_p", "arr_del15.ct", "arr_del15.ct_p", "carrier.ct", "carrier.ct_p", "weather.ct", "weather.ct_p", "nas.ct", "nas.ct_p", "security.ct", "security.ct_p" ,"late_aircraft.ct", "late_aircraft.ct_p")
+  ) |>
+  tab_spanner(
+    label = "Delay",
+    columns = c("arr.delay", "carrier.delay",	"carrier.delay_p", "weather.delay",	"weather.delay_p", "nas.delay", "nas.delay_p", "security.delay", "security.delay_p", "late_aircraft.delay", "late_aircraft.delay_p")
+  ) |>
+  cols_label(
+    ends_with(".ct") ~ "[abs]",
+    ends_with(".ct_p") ~ "[%]",
+    ends_with(".delay") ~ "[abs]",
+    ends_with(".delay_p") ~ "[%]"
+  )
+  
+
+table_airport
+gtsave(table_airport, file = "tables/airport_top.html")
+gtsave(table_airport, file = "tables/airport_top.png")
+gtsave(table_airport, file = "tables/airport_top.docx")
+
+
+```
+
+```{r}
+
+#summary_all
+airline_delay_all_p_summary_gt <- airline_delay_all_p_summary  %>%
+  group_by(year) %>%
+  select(-contains("month"), -contains("min"), -contains("max"), -contains("sd"),, -contains("median")) %>%
+  mutate_at(vars(contains("_p") | contains("_pr")), ~ sprintf("%0.2f%%", as.numeric(.)*100)) %>%
+  mutate_at(vars(contains("_mean")), ~ sprintf("%0.2f", as.numeric(.))) %>%
+  select(-contains("_pr"))
+
+table_airport <- gt(airline_delay_all_p_summary_gt, rowname_col = "year", groupname_col = NULL) |> 
+  opt_stylize(style = 3) |>
+  tab_header(
+    title = "Overall Arrivals, Irrops, Delay and Delay Breakdown",
+    subtitle = "Depicted in Absolute and Relative Terms, Comparing Data from December 2019 to December 2020"
+    ) |>
+  cols_move(
+    columns = c("airport_n", "carrier_n","arr_flights.ct_total", "arr_flights.ct_mean", "normal.ct_total", "normal.ct_total_p", "normal.ct_mean", "arr_cancelled.ct_total", "arr_cancelled.ct_total_p", "arr_cancelled.ct_mean", "arr_diverted.ct_total", "arr_diverted.ct_total_p", "arr_diverted.ct_mean", "arr_del15.ct_total", "arr_del15.ct_total_p", "arr_del15.ct_mean", "carrier.ct_total", "carrier.ct_total_p", "carrier.ct_mean", "weather.ct_total", "weather.ct_total_p", "weather.ct_mean", "nas.ct_total", "nas.ct_total_p", "nas.ct_mean", "security.ct_total", "security.ct_total_p", "security.ct_mean" ,"late_aircraft.ct_total", "late_aircraft.ct_total_p", "late_aircraft.ct_mean",	"arr.delay_total", "arr.delay_mean", "carrier.delay_total", "carrier.delay_total_p", "carrier.delay_mean", "weather.delay_total", "weather.delay_total_p",	"weather.delay_mean", "nas.delay_total", "nas.delay_total_p", "nas.delay_mean", "security.delay_total", "security.delay_total_p", "security.delay_mean", "late_aircraft.delay_total", "late_aircraft.delay_total_p", "late_aircraft.delay_mean"),
+    after = c("entries")
+  ) |>
+  
+  tab_spanner(
+    label = "All",
+    columns = c("arr_flights.ct_total", "arr_flights.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Normal",
+    columns = c("normal.ct_total", "normal.ct_total_p", "normal.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Cancelled",
+    columns = c("arr_cancelled.ct_total", "arr_cancelled.ct_total_p", "arr_cancelled.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Diverted",
+    columns = c("arr_diverted.ct_total", "arr_diverted.ct_total_p", "arr_diverted.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Delayed",
+    columns = c("arr_del15.ct_total", "arr_del15.ct_total_p", "arr_del15.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Carrier Delayed",
+    columns = c("carrier.ct_total", "carrier.ct_total_p", "carrier.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Weather Delayed",
+    columns = c("weather.ct_total", "weather.ct_total_p", "weather.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "NAS Delayed",
+    columns = c("nas.ct_total", "nas.ct_total_p", "nas.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Security Delayed",
+    columns = c("security.ct_total", "security.ct_total_p", "security.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delayed",
+    columns = c("late_aircraft.ct_total", "late_aircraft.ct_total_p", "late_aircraft.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Total",
+    columns = c("arr.delay_total", "arr.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "Carrier",
+    columns = c("carrier.delay_total",	"carrier.delay_total_p",	"carrier.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "Weather",
+    columns = c("weather.delay_total",	"weather.delay_total_p",	"weather.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "NAS",
+    columns = c("nas.delay_total", "nas.delay_total_p", "nas.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "Security",
+    columns = c("security.delay_total", "security.delay_total_p", "security.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft",
+    columns = c("late_aircraft.delay_total", "late_aircraft.delay_total_p", "late_aircraft.delay_mean")
+  ) |>
+  
+  tab_spanner(
+    label = "Arrivals",
+    columns = c("arr_flights.ct_total", "arr_flights.ct_mean", "normal.ct_total", "normal.ct_total_p", "normal.ct_mean", "arr_cancelled.ct_total", "arr_cancelled.ct_total_p", "arr_cancelled.ct_mean", "arr_diverted.ct_total", "arr_diverted.ct_total_p", "arr_diverted.ct_mean", "arr_del15.ct_total", "arr_del15.ct_total_p", "arr_del15.ct_mean", "carrier.ct_total", "carrier.ct_total_p", "carrier.ct_mean", "weather.ct_total", "weather.ct_total_p", "weather.ct_mean", "nas.ct_total", "nas.ct_total_p", "nas.ct_mean", "security.ct_total", "security.ct_total_p", "security.ct_mean" ,"late_aircraft.ct_total", "late_aircraft.ct_total_p", "late_aircraft.ct_mean")
+  ) |>
+  tab_spanner(
+    label = "Delay",
+    columns = c("arr.delay_total", "arr.delay_mean", "carrier.delay_total", "carrier.delay_total_p", "carrier.delay_mean", "weather.delay_total", "weather.delay_total_p",	"weather.delay_mean", "nas.delay_total", "nas.delay_total_p", "nas.delay_mean", "security.delay_total", "security.delay_total_p", "security.delay_mean", "late_aircraft.delay_total", "late_aircraft.delay_total_p", "late_aircraft.delay_mean")
+  ) |>
+  tab_spanner(
+    label = "Misc",
+    columns = c("entries", "airport_n", "carrier_n")
+  ) |>
+  cols_label(
+    entries = "Entries",
+    airport_n = "Airports",
+    carrier_n = "Airlines",
+    ends_with("total") ~ "[abs]",
+    ends_with("total_p") ~ "[%]",
+    ends_with("mean") ~ "Mean"
+  )
+  
+  
+table_airport
+gtsave(table_airport, file = "tables/summary.html")
+gtsave(table_airport, file = "tables/summary.png")
+gtsave(table_airport, file = "tables/summary.docx")
+
+#data information?
+
+
+
+#table_data
+#gtsave(table_data, file = "tables/data.html")
+
+```
+
+```{r}
+#Changes from 2019 to 2020
+
+calculate_delta_function <- function(df, range_start, range_end){
+  column_names <- colnames(df[, range_start:range_end])
+  differences <- df %>%
+    pivot_wider(names_from = year, values_from = all_of(column_names))
+  
+  for(column_name in column_names){
+    differences <- differences %>%
+    mutate(!!sym(paste0(column_name,"._delta")) := !!sym(paste0(column_name,"_2020")) - !!sym(paste0(column_name,"_2019")),
+           !!sym(paste0(column_name,"._delta_p")) := (!!sym(paste0(column_name,"_2020")) - !!sym(paste0(column_name,"_2019"))) / !!sym(paste0(column_name,"_2019"))) %>%
+    select(-paste0(column_name,"_2020"), -paste0(column_name,"_2019"))
+  }
+  differences <- differences %>%
+    mutate_all(~ ifelse(is.nan(.), 0, .))
+  
+  return(differences)
+}
+
+#table function
+
+table_function_1 <- function(df, filename, title, subtitle){
+  
+table <- gt(df, rowname_col = "grouptype", groupname_col = "highergrouptype", row_group_as_column = FALSE) %>%
+  opt_stylize(style = 3) %>%
+  tab_header(
+    title = title,
+    subtitle = subtitle
+  ) |>
+  tab_spanner(
+     label = "Change",
+     columns = c("delta", "delta_p")
+  ) |>
+  cols_label(
+    delta = "[abs]",
+    delta_p = "[%]",
+  )
+#   tab_row_group(
+#     label = "# of Flights",
+#     rows = c('Arrivals Total', 'Arrivals Mean', 'Normal Total', 'Normal Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean')) |>
+#   tab_row_group(
+#     label = "Delay",
+#     rows = c('arr.delay_total', 'arr.delay_mean', 'carrier.delay_total', 'carrier.delay_mean', 'weather.delay_total', 'weather.delay_mean', 'nas.delay_total', 'nas.delay_mean', 'security.delay_total', 'security.delay_mean', 'late_aircraft.delay_total', 'late_aircraft.delay_mean'))
+
+gtsave(table, file = paste0(filename, ".html"))
+gtsave(table, file = paste0(filename, ".png"))
+gtsave(table, file = paste0(filename, ".docx"))
+return(table)
+}
+
+
+table_function_2 <- function(df, filename, title, subtitle, rownamecol){
+  
+table <- gt(df, rowname_col = rownamecol, groupname_col = NULL) |>
+  opt_stylize(style = 3) |>
+  tab_header(
+    title = title,
+    subtitle = subtitle
+  ) |>
+  cols_move(
+    columns = c('Arrivals Total', 'Arrivals Mean', 'Normal Total', 'Normal Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delayed Total', 'Carrier Delayed Mean', 'Weather Delayed Total', 'Weather Delayed Mean', 'NAS Delayed Total', 'NAS Delayed Mean', 'Security Delayed Total', 'Security Delayed Mean', 'Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean', 'Arrivals Total', 'Arrivals Mean', 'Normal Total', 'Normal Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean'),
+    after = c("Name")
+  ) |>
+  
+  tab_spanner(
+    label = "All",
+    columns = c('Arrivals Total', 'Arrivals Mean')
+  ) |>
+  tab_spanner(
+    label = "Normal",
+    columns = c('Normal Total', 'Normal Mean')
+  ) |>
+  tab_spanner(
+    label = "Cancelled",
+    columns = c('Cancelled Total', 'Cancelled Mean')
+  ) |>
+  tab_spanner(
+    label = "Diverted",
+    columns = c('Diverted Total', 'Diverted Mean')
+  ) |>
+  tab_spanner(
+    label = "Delayed",
+    columns = c('Delayed Total', 'Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Carrier Delayed",
+    columns = c('Carrier Delayed Total', 'Carrier Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Weather Delayed",
+    columns = c('Weather Delayed Total', 'Weather Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "NAS Delayed",
+    columns = c('NAS Delayed Total', 'NAS Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Security Delayed",
+    columns = c('Security Delayed Total', 'Security Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delayed",
+    columns = c('Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Total Delay",
+    columns = c('Delay Total', 'Delay Mean')
+  ) |>
+  tab_spanner(
+    label = "Carrier Delay",
+    columns = c('Carrier Delay Total', 'Carrier Delay Mean')
+  ) |>
+  tab_spanner(
+    label = "Weather Delay",
+    columns = c('Weather Delay Total', 'Weather Delay Mean')
+  ) |>
+  tab_spanner(
+    label = "NAS Delay",
+    columns = c('NAS Delay Total', 'NAS Delay Mean')
+  ) |>
+  tab_spanner(
+    label = "Security Delay",
+    columns = c('Security Delay Total', 'Security Delay Mean')
+  ) |>
+  tab_spanner(
+    label = "Late Aircraft Delay",
+    columns = c('Late Aircraft Delay Total', 'Late Aircraft Delay Mean')
+  ) |>
+
+  tab_spanner(
+    label = "Arrivals",
+    columns = c('Arrivals Total', 'Arrivals Mean', 'Normal Total', 'Normal Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delayed Total', 'Carrier Delayed Mean', 'Weather Delayed Total', 'Weather Delayed Mean', 'NAS Delayed Total', 'NAS Delayed Mean', 'Security Delayed Total', 'Security Delayed Mean', 'Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean')
+  ) |>
+  tab_spanner(
+    label = "Delay",
+    columns = c('Delay Total', 'Delay Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean')
+  ) |>
+  cols_label(
+    Name = rownamecol,
+    ends_with("total") ~ "[abs]",
+    ends_with("mean") ~ "[%]",
+  )
+
+gtsave(table, file = paste0(filename, ".html"))
+gtsave(table, file = paste0(filename, ".png"))
+gtsave(table, file = paste0(filename, ".docx"))
+return(table)
+}
+
+
+#airline
+
+airline_delay_airline_p_delta <- calculate_delta_function(airline_delay_airline_p,4,ncol(airline_delay_airline_p))
+
+airline_delay_airline_p_delta_gt <- airline_delay_airline_p_delta %>%
+  group_by(carrier_name) %>%
+  mutate(carrier_name = paste0(carrier_name, " (", carrier, ")")) %>%
+  select(carrier_name, contains(".delay."),contains(".ct.")) %>%
+  mutate_at(vars(contains("_p") | contains("_pr")), ~ sprintf("%0.2f%%", as.numeric(.)*100)) %>%
+  rename_with(~ c(c('Name'), c('Delay Total', 'Delay Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean'), c('Arrivals Total', 'Arrivals Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delayed Total', 'Carrier Delayed Mean', 'Weather Delayed Total', 'Weather Delayed Mean', 'NAS Delayed Total', 'NAS Delayed Mean', 'Security Delayed Total', 'Security Delayed Mean', 'Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Normal Total', 'Normal Mean')))
+
+table_change_airline <- table_function_2(airline_delay_airline_p_delta_gt, "tables/table_change_airline", "Year on Year Change of Arrivals, Irrops, Delay and Delay Breakdown per Airline", "Development Depicted in Absolute and Relative Terms, Comparing December 2019 to December 2020", 'Airline')
+
+table_change_airline
+
+
+#airport
+
+airline_delay_airport_p_delta <- calculate_delta_function(airline_delay_airport_p,4,ncol(airline_delay_airport_p))
+
+airline_delay_airport_p_delta_gt <- airline_delay_airport_p_delta %>%
+  group_by(airport_name) %>%
+  mutate(airport_name = paste0(airport_name, " (", airport, ")")) %>%
+  select(airport_name, contains(".delay."),contains(".ct.")) %>%
+  mutate_at(vars(contains("_p") | contains("_pr")), ~ sprintf("%0.2f%%", as.numeric(.)*100)) %>%
+  rename_with(~ c(c('Name'), c('Delay Total', 'Delay Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean'), c('Arrivals Total', 'Arrivals Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delayed Total', 'Carrier Delayed Mean', 'Weather Delayed Total', 'Weather Delayed Mean', 'NAS Delayed Total', 'NAS Delayed Mean', 'Security Delayed Total', 'Security Delayed Mean', 'Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Normal Total', 'Normal Mean')))
+
+table_change_airport <- table_function_2(airline_delay_airport_p_delta_gt, "tables/table_change_airport", "Year on Year Change Arrivals, Irrops, Delay and Delay Breakdown per Airport", "Development Depicted in Absolute and Relative Terms, Comparing December 2019 to December 2020", "Airport")
+
+table_change_airport
+
+airline_delay_airport_p_delta_gt_max <- airline_delay_airport_p_delta_gt %>%
+  filter(Name %in% largest_airports)              
+
+
+table_change_airport_highest <- table_function_2(airline_delay_airport_p_delta_gt_max, "tables/table_change_airport_highest", "Year on Year Change Arrivals, Irrops, Delay and Delay Breakdown per Airport", "Development Depicted in Absolute and Relative Terms, Comparing December 2019 to December 2020", "Airport")
+table_change_airport_highest
+
+#all
+
+airline_delay_all_p_delta <- calculate_delta_function(airline_delay_all_p,7,ncol(airline_delay_all_p)) %>%
+  select(-month, -contains("_median"), -contains("_sd"), -contains("_min"), -contains("_max"))
+
+airline_delay_all_p_summary_delta <- calculate_delta_function(airline_delay_all_p_summary,2,ncol(airline_delay_all_p_summary)) %>%
+  select(-contains("_median"), -contains("_sd"), contains("entries"), contains("airline"), contains("airport"), -contains("_min"), -contains("_max"))
+
+airline_delay_all_p_summary_delta_gt <- na.omit(airline_delay_all_p_summary_delta) %>%
+    select(contains(".delay_"),contains(".ct_"),-contains("_total_p"),-contains("_total_pr")) %>%
+    pivot_longer(cols=everything(.), names_to = c("type", ".value"), names_sep = "\\._") %>%
+    mutate(delta = sprintf("%0.2f", as.numeric(delta)),
+           delta_p = sprintf("%0.2f%%", as.numeric(delta_p)*100)
+           ) %>%
+    mutate(typeO = fct_relevel(type, c(c('arr_flights.ct_total', 'arr_flights.ct_mean', 'normal.ct_total', 'normal.ct_mean', 'arr_cancelled.ct_total', 'arr_cancelled.ct_mean', 'arr_diverted.ct_total', 'arr_diverted.ct_mean', 'arr_del15.ct_total', 'arr_del15.ct_mean', 'carrier.ct_total', 'carrier.ct_mean', 'weather.ct_total', 'weather.ct_mean', 'nas.ct_total', 'nas.ct_mean', 'security.ct_total', 'security.ct_mean', 'late_aircraft.ct_total', 'late_aircraft.ct_mean'), c('arr.delay_total', 'arr.delay_mean', 'carrier.delay_total', 'carrier.delay_mean', 'weather.delay_total', 'weather.delay_mean', 'nas.delay_total', 'nas.delay_mean', 'security.delay_total', 'security.delay_mean', 'late_aircraft.delay_total', 'late_aircraft.delay_mean')))) %>%
+    arrange(typeO) %>%
+    select(-typeO) %>%
+    mutate(grouptype = c(c('Arrivals Total', 'Arrivals Mean', 'Normal Total', 'Normal Mean', 'Cancelled Total', 'Cancelled Mean', 'Diverted Total', 'Diverted Mean', 'Delayed Total', 'Delayed Mean', 'Carrier Delayed Total', 'Carrier Delayed Mean', 'Weather Delayed Total', 'Weather Delayed Mean', 'NAS Delayed Total', 'NAS Delayed Mean', 'Security Delayed Total', 'Security Delayed Mean', 'Late Aircraft Delayed Total', 'Late Aircraft Delayed Mean'), c('Delay Total', 'Delay Mean', 'Carrier Delay Total', 'Carrier Delay Mean', 'Weather Delay Total', 'Weather Delay Mean', 'NAS Delay Total', 'NAS Delay Mean', 'Security Delay Total', 'Security Delay Mean', 'Late Aircraft Delay Total', 'Late Aircraft Delay Mean')),
+           #grouptype2 = c(c('Arrivals', 'Arrivals', 'Normal', 'Normal', 'Cancelled', 'Cancelled', 'Diverted', 'Diverted', 'Delayed', 'Delayed', 'Carrier Delay', 'Carrier Delay', 'Weather Delay', 'Weather Delay', 'NAS Delay', 'NAS Delay', 'Security Delay', 'Security Delay', 'Late Aircraft Delay', 'Late Aircraft Delay'), c('Delay', 'Delay', 'Carrier Delay', 'Carrier Delay', 'Weather Delay', 'Weather Delay', 'NAS Delay', 'NAS Delay', 'Security Delay', 'Security Delay', 'Late Aircraft Delay', 'Late Aircraft Delay')),
+           highergrouptype = c(c('Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals', 'Arrivals'), c('Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay', 'Delay'))) %>%
+  select(-type)
+    
+
+table_change_all <- table_function_1(airline_delay_all_p_summary_delta_gt, "tables/table_change_all", "Year on Year Overall Arrivals, Irrops, Delay and Delay Breakdown", "Depicted in Absolute and Relative Terms, Comparing Development from December 2019 to December 2020")
+
+table_change_all
+
+```
+
+```{r}
+#Data Overview
+
+#make a table where only the 10 largest airports are listed?
+
+#what can be said?
+# 
+# Overall drop of flights,
+# Overall changes between 2019 and 2020, for example in flights, delay, delay types etc. Show trends and how things developed. Reason: Pandemic.
+# 
+# why some airlines more than others?
+#   did delay also drop similarily? yes, no why?
+
+
+#Several airlines, although independent, operate for the big three, these are:
+#
+# AA:
+#   Envoy Air
+#   PSA Airlines Inc.
+#   Republic Airline*
+# UA:
+#   ExpressJet
+#   Mesa
+#   Republic Airline*
+# DL:
+#   Endeavor Air
+#   Republic Airline*
+
+#airlines
+n_distinct(airline_delay$carrier)
+#airports
+n_distinct(airline_delay$airport)
+
+  
+```
+

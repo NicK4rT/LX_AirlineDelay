@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+
+</head>
+<body>
+<div id="xslyzessfc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#xslyzessfc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xslyzessfc thead, #xslyzessfc tbody, #xslyzessfc tfoot, #xslyzessfc tr, #xslyzessfc td, #xslyzessfc th {
+  border-style: none;
+}
+
+#xslyzessfc p {
+  margin: 0;
+  padding: 0;
+}
+
+#xslyzessfc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #929292;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xslyzessfc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xslyzessfc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xslyzessfc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xslyzessfc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xslyzessfc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+}
+
+#xslyzessfc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #929292;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xslyzessfc .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xslyzessfc .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xslyzessfc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xslyzessfc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xslyzessfc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xslyzessfc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xslyzessfc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #929292;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xslyzessfc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #929292;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+  vertical-align: middle;
+}
+
+#xslyzessfc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xslyzessfc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xslyzessfc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: dashed;
+  border-top-width: 1px;
+  border-top-color: #929292;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #929292;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #929292;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xslyzessfc .gt_stub {
+  color: #333333;
+  background-color: #D5D5D5;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xslyzessfc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xslyzessfc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xslyzessfc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xslyzessfc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xslyzessfc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #929292;
+}
+
+#xslyzessfc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xslyzessfc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+}
+
+#xslyzessfc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #D5D5D5;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xslyzessfc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #929292;
+}
+
+#xslyzessfc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #929292;
+}
+
+#xslyzessfc .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#xslyzessfc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #929292;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #929292;
+}
+
+#xslyzessfc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xslyzessfc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xslyzessfc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xslyzessfc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xslyzessfc .gt_left {
+  text-align: left;
+}
+
+#xslyzessfc .gt_center {
+  text-align: center;
+}
+
+#xslyzessfc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xslyzessfc .gt_font_normal {
+  font-weight: normal;
+}
+
+#xslyzessfc .gt_font_bold {
+  font-weight: bold;
+}
+
+#xslyzessfc .gt_font_italic {
+  font-style: italic;
+}
+
+#xslyzessfc .gt_super {
+  font-size: 65%;
+}
+
+#xslyzessfc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xslyzessfc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xslyzessfc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xslyzessfc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xslyzessfc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xslyzessfc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xslyzessfc .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="33" class="gt_heading gt_title gt_font_normal" style>Arrivals, Irrops, Delay and Delay Breakdown per Airline</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="33" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Depicted in Absolute and Relative Terms, Comparing Data from December 2019 to December 2020</td>
+    </tr>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th rowspan="1" colspan="2" scope="colgroup"></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="1" scope="col" id></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="19" scope="colgroup" id="Arrivals">
+        <span class="gt_column_spanner">Arrivals</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="11" scope="colgroup" id="Delay">
+        <span class="gt_column_spanner">Delay</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="2" scope="colgroup" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Airports">Airports</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="1" scope="col" id="All">
+        <span class="gt_column_spanner">All</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Normal">
+        <span class="gt_column_spanner">Normal</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Cancelled">
+        <span class="gt_column_spanner">Cancelled</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Diverted">
+        <span class="gt_column_spanner">Diverted</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Delayed">
+        <span class="gt_column_spanner">Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Carrier Delayed">
+        <span class="gt_column_spanner">Carrier Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Weather Delayed">
+        <span class="gt_column_spanner">Weather Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="NAS Delayed">
+        <span class="gt_column_spanner">NAS Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Security Delayed">
+        <span class="gt_column_spanner">Security Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Late Aircraft Delayed">
+        <span class="gt_column_spanner">Late Aircraft Delayed</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="1" scope="col" id="Total">
+        <span class="gt_column_spanner">Total</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Carrier">
+        <span class="gt_column_spanner">Carrier</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Weather">
+        <span class="gt_column_spanner">Weather</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="NAS">
+        <span class="gt_column_spanner">NAS</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Security">
+        <span class="gt_column_spanner">Security</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="late Aircraft">
+        <span class="gt_column_spanner">late Aircraft</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[abs]">[abs]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="[%]">[%]</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_row_group_first"><td headers="Endeavor Air Inc. (9E) stub_2_1 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Endeavor Air Inc. (9E)</td>
+<th id="stub_2_1" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 airports" class="gt_row gt_right">109</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_flights.ct" class="gt_row gt_right">23365</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 normal.ct" class="gt_row gt_right">19097</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 normal.ct_p" class="gt_row gt_right">81.73%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_cancelled.ct" class="gt_row gt_right">246</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_cancelled.ct_p" class="gt_row gt_right">1.05%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_diverted.ct" class="gt_row gt_right">57</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_diverted.ct_p" class="gt_row gt_right">0.24%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_del15.ct" class="gt_row gt_right">3965</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr_del15.ct_p" class="gt_row gt_right">16.97%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 carrier.ct" class="gt_row gt_right">946.29</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 carrier.ct_p" class="gt_row gt_right">4.05%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 weather.ct" class="gt_row gt_right">139.99</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 weather.ct_p" class="gt_row gt_right">0.60%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 nas.ct" class="gt_row gt_right">1278.19</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 nas.ct_p" class="gt_row gt_right">5.47%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 security.ct" class="gt_row gt_right">1.45</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 security.ct_p" class="gt_row gt_right">0.01%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 late_aircraft.ct" class="gt_row gt_right">1599.17</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 late_aircraft.ct_p" class="gt_row gt_right">6.84%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 arr.delay" class="gt_row gt_right">305080</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 carrier.delay" class="gt_row gt_right">81530</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 carrier.delay_p" class="gt_row gt_right">26.72%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 weather.delay" class="gt_row gt_right">22658</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 weather.delay_p" class="gt_row gt_right">7.43%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 nas.delay" class="gt_row gt_right">73966</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 nas.delay_p" class="gt_row gt_right">24.24%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 security.delay" class="gt_row gt_right">150</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 security.delay_p" class="gt_row gt_right">0.05%</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 late_aircraft.delay" class="gt_row gt_right">126776</td>
+<td headers="Endeavor Air Inc. (9E) stub_2_1 late_aircraft.delay_p" class="gt_row gt_right">41.56%</td></tr>
+    <tr><th id="airports_2" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Endeavor Air Inc. (9E) airports_2 airports" class="gt_row gt_right gt_striped">117</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_flights.ct" class="gt_row gt_right gt_striped">22010</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 normal.ct" class="gt_row gt_right gt_striped">19923</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 normal.ct_p" class="gt_row gt_right gt_striped">90.52%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_cancelled.ct" class="gt_row gt_right gt_striped">166</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.75%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_diverted.ct" class="gt_row gt_right gt_striped">26</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.12%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_del15.ct" class="gt_row gt_right gt_striped">1895</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr_del15.ct_p" class="gt_row gt_right gt_striped">8.61%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 carrier.ct" class="gt_row gt_right gt_striped">675.10</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 carrier.ct_p" class="gt_row gt_right gt_striped">3.07%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 weather.ct" class="gt_row gt_right gt_striped">55.02</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 weather.ct_p" class="gt_row gt_right gt_striped">0.25%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 nas.ct" class="gt_row gt_right gt_striped">714.73</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 nas.ct_p" class="gt_row gt_right gt_striped">3.25%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 security.ct" class="gt_row gt_right gt_striped">3.47</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 security.ct_p" class="gt_row gt_right gt_striped">0.02%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 late_aircraft.ct" class="gt_row gt_right gt_striped">446.66</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 late_aircraft.ct_p" class="gt_row gt_right gt_striped">2.03%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 arr.delay" class="gt_row gt_right gt_striped">126603</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 carrier.delay" class="gt_row gt_right gt_striped">61305</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 carrier.delay_p" class="gt_row gt_right gt_striped">48.42%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 weather.delay" class="gt_row gt_right gt_striped">10256</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 weather.delay_p" class="gt_row gt_right gt_striped">8.10%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 nas.delay" class="gt_row gt_right gt_striped">24968</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 nas.delay_p" class="gt_row gt_right gt_striped">19.72%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 security.delay" class="gt_row gt_right gt_striped">98</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 security.delay_p" class="gt_row gt_right gt_striped">0.08%</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 late_aircraft.delay" class="gt_row gt_right gt_striped">29976</td>
+<td headers="Endeavor Air Inc. (9E) airports_2 late_aircraft.delay_p" class="gt_row gt_right gt_striped">23.68%</td></tr>
+    <tr class="gt_row_group_first"><td headers="American Airlines Inc. (AA) stub_2_3 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">American Airlines Inc. (AA)</td>
+<th id="stub_2_3" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="American Airlines Inc. (AA) stub_2_3 airports" class="gt_row gt_right">110</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_flights.ct" class="gt_row gt_right">79405</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 normal.ct" class="gt_row gt_right">64477</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 normal.ct_p" class="gt_row gt_right">81.20%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_cancelled.ct" class="gt_row gt_right">177</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_cancelled.ct_p" class="gt_row gt_right">0.22%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_diverted.ct" class="gt_row gt_right">134</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_diverted.ct_p" class="gt_row gt_right">0.17%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_del15.ct" class="gt_row gt_right">14617</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr_del15.ct_p" class="gt_row gt_right">18.41%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 carrier.ct" class="gt_row gt_right">4510.56</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 carrier.ct_p" class="gt_row gt_right">5.68%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 weather.ct" class="gt_row gt_right">296.89</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 weather.ct_p" class="gt_row gt_right">0.37%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 nas.ct" class="gt_row gt_right">4924.37</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 nas.ct_p" class="gt_row gt_right">6.20%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 security.ct" class="gt_row gt_right">36.08</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 security.ct_p" class="gt_row gt_right">0.05%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 late_aircraft.ct" class="gt_row gt_right">4848.98</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 late_aircraft.ct_p" class="gt_row gt_right">6.11%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 arr.delay" class="gt_row gt_right">906494</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 carrier.delay" class="gt_row gt_right">321322</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 carrier.delay_p" class="gt_row gt_right">35.45%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 weather.delay" class="gt_row gt_right">23198</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 weather.delay_p" class="gt_row gt_right">2.56%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 nas.delay" class="gt_row gt_right">203348</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 nas.delay_p" class="gt_row gt_right">22.43%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 security.delay" class="gt_row gt_right">1361</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 security.delay_p" class="gt_row gt_right">0.15%</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 late_aircraft.delay" class="gt_row gt_right">357265</td>
+<td headers="American Airlines Inc. (AA) stub_2_3 late_aircraft.delay_p" class="gt_row gt_right">39.41%</td></tr>
+    <tr><th id="airports_4" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="American Airlines Inc. (AA) airports_4 airports" class="gt_row gt_right gt_striped">89</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_flights.ct" class="gt_row gt_right gt_striped">38496</td>
+<td headers="American Airlines Inc. (AA) airports_4 normal.ct" class="gt_row gt_right gt_striped">33904</td>
+<td headers="American Airlines Inc. (AA) airports_4 normal.ct_p" class="gt_row gt_right gt_striped">88.07%</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_cancelled.ct" class="gt_row gt_right gt_striped">210</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.55%</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_diverted.ct" class="gt_row gt_right gt_striped">55</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.14%</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_del15.ct" class="gt_row gt_right gt_striped">4327</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr_del15.ct_p" class="gt_row gt_right gt_striped">11.24%</td>
+<td headers="American Airlines Inc. (AA) airports_4 carrier.ct" class="gt_row gt_right gt_striped">1693.30</td>
+<td headers="American Airlines Inc. (AA) airports_4 carrier.ct_p" class="gt_row gt_right gt_striped">4.40%</td>
+<td headers="American Airlines Inc. (AA) airports_4 weather.ct" class="gt_row gt_right gt_striped">93.94</td>
+<td headers="American Airlines Inc. (AA) airports_4 weather.ct_p" class="gt_row gt_right gt_striped">0.24%</td>
+<td headers="American Airlines Inc. (AA) airports_4 nas.ct" class="gt_row gt_right gt_striped">1809.43</td>
+<td headers="American Airlines Inc. (AA) airports_4 nas.ct_p" class="gt_row gt_right gt_striped">4.70%</td>
+<td headers="American Airlines Inc. (AA) airports_4 security.ct" class="gt_row gt_right gt_striped">14.96</td>
+<td headers="American Airlines Inc. (AA) airports_4 security.ct_p" class="gt_row gt_right gt_striped">0.04%</td>
+<td headers="American Airlines Inc. (AA) airports_4 late_aircraft.ct" class="gt_row gt_right gt_striped">715.40</td>
+<td headers="American Airlines Inc. (AA) airports_4 late_aircraft.ct_p" class="gt_row gt_right gt_striped">1.86%</td>
+<td headers="American Airlines Inc. (AA) airports_4 arr.delay" class="gt_row gt_right gt_striped">278851</td>
+<td headers="American Airlines Inc. (AA) airports_4 carrier.delay" class="gt_row gt_right gt_striped">127147</td>
+<td headers="American Airlines Inc. (AA) airports_4 carrier.delay_p" class="gt_row gt_right gt_striped">45.60%</td>
+<td headers="American Airlines Inc. (AA) airports_4 weather.delay" class="gt_row gt_right gt_striped">16071</td>
+<td headers="American Airlines Inc. (AA) airports_4 weather.delay_p" class="gt_row gt_right gt_striped">5.76%</td>
+<td headers="American Airlines Inc. (AA) airports_4 nas.delay" class="gt_row gt_right gt_striped">68509</td>
+<td headers="American Airlines Inc. (AA) airports_4 nas.delay_p" class="gt_row gt_right gt_striped">24.57%</td>
+<td headers="American Airlines Inc. (AA) airports_4 security.delay" class="gt_row gt_right gt_striped">560</td>
+<td headers="American Airlines Inc. (AA) airports_4 security.delay_p" class="gt_row gt_right gt_striped">0.20%</td>
+<td headers="American Airlines Inc. (AA) airports_4 late_aircraft.delay" class="gt_row gt_right gt_striped">66564</td>
+<td headers="American Airlines Inc. (AA) airports_4 late_aircraft.delay_p" class="gt_row gt_right gt_striped">23.87%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Alaska Airlines Inc. (AS) stub_2_5 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Alaska Airlines Inc. (AS)</td>
+<th id="stub_2_5" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 airports" class="gt_row gt_right">72</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_flights.ct" class="gt_row gt_right">21993</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 normal.ct" class="gt_row gt_right">16232</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 normal.ct_p" class="gt_row gt_right">73.81%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_cancelled.ct" class="gt_row gt_right">241</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_cancelled.ct_p" class="gt_row gt_right">1.10%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_diverted.ct" class="gt_row gt_right">51</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_diverted.ct_p" class="gt_row gt_right">0.23%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_del15.ct" class="gt_row gt_right">5469</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr_del15.ct_p" class="gt_row gt_right">24.87%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 carrier.ct" class="gt_row gt_right">1347.44</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 carrier.ct_p" class="gt_row gt_right">6.13%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 weather.ct" class="gt_row gt_right">58.86</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 weather.ct_p" class="gt_row gt_right">0.27%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 nas.ct" class="gt_row gt_right">2225.01</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 nas.ct_p" class="gt_row gt_right">10.12%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 security.ct" class="gt_row gt_right">23.97</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 security.ct_p" class="gt_row gt_right">0.11%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 late_aircraft.ct" class="gt_row gt_right">1813.73</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 late_aircraft.ct_p" class="gt_row gt_right">8.25%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 arr.delay" class="gt_row gt_right">313653</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 carrier.delay" class="gt_row gt_right">87950</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 carrier.delay_p" class="gt_row gt_right">28.04%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 weather.delay" class="gt_row gt_right">3785</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 weather.delay_p" class="gt_row gt_right">1.21%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 nas.delay" class="gt_row gt_right">96684</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 nas.delay_p" class="gt_row gt_right">30.83%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 security.delay" class="gt_row gt_right">896</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 security.delay_p" class="gt_row gt_right">0.29%</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 late_aircraft.delay" class="gt_row gt_right">124338</td>
+<td headers="Alaska Airlines Inc. (AS) stub_2_5 late_aircraft.delay_p" class="gt_row gt_right">39.64%</td></tr>
+    <tr><th id="airports_6" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Alaska Airlines Inc. (AS) airports_6 airports" class="gt_row gt_right gt_striped">72</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_flights.ct" class="gt_row gt_right gt_striped">11008</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 normal.ct" class="gt_row gt_right gt_striped">9980</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 normal.ct_p" class="gt_row gt_right gt_striped">90.66%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_cancelled.ct" class="gt_row gt_right gt_striped">164</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.49%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_diverted.ct" class="gt_row gt_right gt_striped">39</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.35%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_del15.ct" class="gt_row gt_right gt_striped">825</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr_del15.ct_p" class="gt_row gt_right gt_striped">7.49%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 carrier.ct" class="gt_row gt_right gt_striped">227.53</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 carrier.ct_p" class="gt_row gt_right gt_striped">2.07%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 weather.ct" class="gt_row gt_right gt_striped">58.20</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 weather.ct_p" class="gt_row gt_right gt_striped">0.53%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 nas.ct" class="gt_row gt_right gt_striped">355.89</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 nas.ct_p" class="gt_row gt_right gt_striped">3.23%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 security.ct" class="gt_row gt_right gt_striped">22.08</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 security.ct_p" class="gt_row gt_right gt_striped">0.20%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 late_aircraft.ct" class="gt_row gt_right gt_striped">161.32</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 late_aircraft.ct_p" class="gt_row gt_right gt_striped">1.47%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 arr.delay" class="gt_row gt_right gt_striped">37382</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 carrier.delay" class="gt_row gt_right gt_striped">12576</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 carrier.delay_p" class="gt_row gt_right gt_striped">33.64%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 weather.delay" class="gt_row gt_right gt_striped">3871</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 weather.delay_p" class="gt_row gt_right gt_striped">10.36%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 nas.delay" class="gt_row gt_right gt_striped">10996</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 nas.delay_p" class="gt_row gt_right gt_striped">29.42%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 security.delay" class="gt_row gt_right gt_striped">891</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 security.delay_p" class="gt_row gt_right gt_striped">2.38%</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 late_aircraft.delay" class="gt_row gt_right gt_striped">9048</td>
+<td headers="Alaska Airlines Inc. (AS) airports_6 late_aircraft.delay_p" class="gt_row gt_right gt_striped">24.20%</td></tr>
+    <tr class="gt_row_group_first"><td headers="JetBlue Airways (B6) stub_2_7 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">JetBlue Airways (B6)</td>
+<th id="stub_2_7" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="JetBlue Airways (B6) stub_2_7 airports" class="gt_row gt_right">64</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_flights.ct" class="gt_row gt_right">25217</td>
+<td headers="JetBlue Airways (B6) stub_2_7 normal.ct" class="gt_row gt_right">16832</td>
+<td headers="JetBlue Airways (B6) stub_2_7 normal.ct_p" class="gt_row gt_right">66.75%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_cancelled.ct" class="gt_row gt_right">183</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_cancelled.ct_p" class="gt_row gt_right">0.73%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_diverted.ct" class="gt_row gt_right">71</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_diverted.ct_p" class="gt_row gt_right">0.28%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_del15.ct" class="gt_row gt_right">8131</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr_del15.ct_p" class="gt_row gt_right">32.24%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 carrier.ct" class="gt_row gt_right">2746.45</td>
+<td headers="JetBlue Airways (B6) stub_2_7 carrier.ct_p" class="gt_row gt_right">10.89%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 weather.ct" class="gt_row gt_right">70.54</td>
+<td headers="JetBlue Airways (B6) stub_2_7 weather.ct_p" class="gt_row gt_right">0.28%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 nas.ct" class="gt_row gt_right">2422.77</td>
+<td headers="JetBlue Airways (B6) stub_2_7 nas.ct_p" class="gt_row gt_right">9.61%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 security.ct" class="gt_row gt_right">10.58</td>
+<td headers="JetBlue Airways (B6) stub_2_7 security.ct_p" class="gt_row gt_right">0.04%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 late_aircraft.ct" class="gt_row gt_right">2880.69</td>
+<td headers="JetBlue Airways (B6) stub_2_7 late_aircraft.ct_p" class="gt_row gt_right">11.42%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 arr.delay" class="gt_row gt_right">723298</td>
+<td headers="JetBlue Airways (B6) stub_2_7 carrier.delay" class="gt_row gt_right">238720</td>
+<td headers="JetBlue Airways (B6) stub_2_7 carrier.delay_p" class="gt_row gt_right">33.00%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 weather.delay" class="gt_row gt_right">12637</td>
+<td headers="JetBlue Airways (B6) stub_2_7 weather.delay_p" class="gt_row gt_right">1.75%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 nas.delay" class="gt_row gt_right">158828</td>
+<td headers="JetBlue Airways (B6) stub_2_7 nas.delay_p" class="gt_row gt_right">21.96%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 security.delay" class="gt_row gt_right">456</td>
+<td headers="JetBlue Airways (B6) stub_2_7 security.delay_p" class="gt_row gt_right">0.06%</td>
+<td headers="JetBlue Airways (B6) stub_2_7 late_aircraft.delay" class="gt_row gt_right">312657</td>
+<td headers="JetBlue Airways (B6) stub_2_7 late_aircraft.delay_p" class="gt_row gt_right">43.23%</td></tr>
+    <tr><th id="airports_8" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="JetBlue Airways (B6) airports_8 airports" class="gt_row gt_right gt_striped">56</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_flights.ct" class="gt_row gt_right gt_striped">10964</td>
+<td headers="JetBlue Airways (B6) airports_8 normal.ct" class="gt_row gt_right gt_striped">8584</td>
+<td headers="JetBlue Airways (B6) airports_8 normal.ct_p" class="gt_row gt_right gt_striped">78.29%</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_cancelled.ct" class="gt_row gt_right gt_striped">129</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.18%</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_diverted.ct" class="gt_row gt_right gt_striped">19</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.17%</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_del15.ct" class="gt_row gt_right gt_striped">2232</td>
+<td headers="JetBlue Airways (B6) airports_8 arr_del15.ct_p" class="gt_row gt_right gt_striped">20.36%</td>
+<td headers="JetBlue Airways (B6) airports_8 carrier.ct" class="gt_row gt_right gt_striped">841.00</td>
+<td headers="JetBlue Airways (B6) airports_8 carrier.ct_p" class="gt_row gt_right gt_striped">7.67%</td>
+<td headers="JetBlue Airways (B6) airports_8 weather.ct" class="gt_row gt_right gt_striped">50.31</td>
+<td headers="JetBlue Airways (B6) airports_8 weather.ct_p" class="gt_row gt_right gt_striped">0.46%</td>
+<td headers="JetBlue Airways (B6) airports_8 nas.ct" class="gt_row gt_right gt_striped">872.35</td>
+<td headers="JetBlue Airways (B6) airports_8 nas.ct_p" class="gt_row gt_right gt_striped">7.96%</td>
+<td headers="JetBlue Airways (B6) airports_8 security.ct" class="gt_row gt_right gt_striped">8.90</td>
+<td headers="JetBlue Airways (B6) airports_8 security.ct_p" class="gt_row gt_right gt_striped">0.08%</td>
+<td headers="JetBlue Airways (B6) airports_8 late_aircraft.ct" class="gt_row gt_right gt_striped">459.44</td>
+<td headers="JetBlue Airways (B6) airports_8 late_aircraft.ct_p" class="gt_row gt_right gt_striped">4.19%</td>
+<td headers="JetBlue Airways (B6) airports_8 arr.delay" class="gt_row gt_right gt_striped">141492</td>
+<td headers="JetBlue Airways (B6) airports_8 carrier.delay" class="gt_row gt_right gt_striped">58719</td>
+<td headers="JetBlue Airways (B6) airports_8 carrier.delay_p" class="gt_row gt_right gt_striped">41.50%</td>
+<td headers="JetBlue Airways (B6) airports_8 weather.delay" class="gt_row gt_right gt_striped">7658</td>
+<td headers="JetBlue Airways (B6) airports_8 weather.delay_p" class="gt_row gt_right gt_striped">5.41%</td>
+<td headers="JetBlue Airways (B6) airports_8 nas.delay" class="gt_row gt_right gt_striped">33958</td>
+<td headers="JetBlue Airways (B6) airports_8 nas.delay_p" class="gt_row gt_right gt_striped">24.00%</td>
+<td headers="JetBlue Airways (B6) airports_8 security.delay" class="gt_row gt_right gt_striped">391</td>
+<td headers="JetBlue Airways (B6) airports_8 security.delay_p" class="gt_row gt_right gt_striped">0.28%</td>
+<td headers="JetBlue Airways (B6) airports_8 late_aircraft.delay" class="gt_row gt_right gt_striped">40766</td>
+<td headers="JetBlue Airways (B6) airports_8 late_aircraft.delay_p" class="gt_row gt_right gt_striped">28.81%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Delta Air Lines Inc. (DL) stub_2_9 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Delta Air Lines Inc. (DL)</td>
+<th id="stub_2_9" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 airports" class="gt_row gt_right">148</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_flights.ct" class="gt_row gt_right">81524</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 normal.ct" class="gt_row gt_right">68961</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 normal.ct_p" class="gt_row gt_right">84.59%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_cancelled.ct" class="gt_row gt_right">26</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_cancelled.ct_p" class="gt_row gt_right">0.03%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_diverted.ct" class="gt_row gt_right">93</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_diverted.ct_p" class="gt_row gt_right">0.11%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_del15.ct" class="gt_row gt_right">12444</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr_del15.ct_p" class="gt_row gt_right">15.26%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 carrier.ct" class="gt_row gt_right">3825.61</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 carrier.ct_p" class="gt_row gt_right">4.69%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 weather.ct" class="gt_row gt_right">460.67</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 weather.ct_p" class="gt_row gt_right">0.57%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 nas.ct" class="gt_row gt_right">4671.65</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 nas.ct_p" class="gt_row gt_right">5.73%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 security.ct" class="gt_row gt_right">8.35</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 security.ct_p" class="gt_row gt_right">0.01%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 late_aircraft.ct" class="gt_row gt_right">3477.60</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 late_aircraft.ct_p" class="gt_row gt_right">4.27%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 arr.delay" class="gt_row gt_right">734728</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 carrier.delay" class="gt_row gt_right">257675</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 carrier.delay_p" class="gt_row gt_right">35.07%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 weather.delay" class="gt_row gt_right">43330</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 weather.delay_p" class="gt_row gt_right">5.90%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 nas.delay" class="gt_row gt_right">217742</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 nas.delay_p" class="gt_row gt_right">29.64%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 security.delay" class="gt_row gt_right">436</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 security.delay_p" class="gt_row gt_right">0.06%</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 late_aircraft.delay" class="gt_row gt_right">215545</td>
+<td headers="Delta Air Lines Inc. (DL) stub_2_9 late_aircraft.delay_p" class="gt_row gt_right">29.34%</td></tr>
+    <tr><th id="airports_10" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Delta Air Lines Inc. (DL) airports_10 airports" class="gt_row gt_right gt_striped">107</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_flights.ct" class="gt_row gt_right gt_striped">49378</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 normal.ct" class="gt_row gt_right gt_striped">42344</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 normal.ct_p" class="gt_row gt_right gt_striped">85.75%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_cancelled.ct" class="gt_row gt_right gt_striped">566</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.15%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_diverted.ct" class="gt_row gt_right gt_striped">49</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.10%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_del15.ct" class="gt_row gt_right gt_striped">6419</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr_del15.ct_p" class="gt_row gt_right gt_striped">13.00%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 carrier.ct" class="gt_row gt_right gt_striped">2159.40</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 carrier.ct_p" class="gt_row gt_right gt_striped">4.37%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 weather.ct" class="gt_row gt_right gt_striped">109.81</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 weather.ct_p" class="gt_row gt_right gt_striped">0.22%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 nas.ct" class="gt_row gt_right gt_striped">3271.83</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 nas.ct_p" class="gt_row gt_right gt_striped">6.63%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 security.ct" class="gt_row gt_right gt_striped">14.07</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 security.ct_p" class="gt_row gt_right gt_striped">0.03%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 late_aircraft.ct" class="gt_row gt_right gt_striped">863.85</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 late_aircraft.ct_p" class="gt_row gt_right gt_striped">1.75%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 arr.delay" class="gt_row gt_right gt_striped">342701</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 carrier.delay" class="gt_row gt_right gt_striped">166322</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 carrier.delay_p" class="gt_row gt_right gt_striped">48.53%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 weather.delay" class="gt_row gt_right gt_striped">18908</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 weather.delay_p" class="gt_row gt_right gt_striped">5.52%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 nas.delay" class="gt_row gt_right gt_striped">101411</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 nas.delay_p" class="gt_row gt_right gt_striped">29.59%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 security.delay" class="gt_row gt_right gt_striped">714</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 security.delay_p" class="gt_row gt_right gt_striped">0.21%</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 late_aircraft.delay" class="gt_row gt_right gt_striped">55346</td>
+<td headers="Delta Air Lines Inc. (DL) airports_10 late_aircraft.delay_p" class="gt_row gt_right gt_striped">16.15%</td></tr>
+    <tr class="gt_row_group_first"><td headers="ExpressJet Airlines LLC (EV) stub_2_11 stub_1" rowspan="1" class="gt_row gt_left gt_stub_row_group">ExpressJet Airlines LLC (EV)</td>
+<th id="stub_2_11" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 airports" class="gt_row gt_right">106</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_flights.ct" class="gt_row gt_right">11203</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 normal.ct" class="gt_row gt_right">8237</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 normal.ct_p" class="gt_row gt_right">73.52%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_cancelled.ct" class="gt_row gt_right">233</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_cancelled.ct_p" class="gt_row gt_right">2.08%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_diverted.ct" class="gt_row gt_right">39</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_diverted.ct_p" class="gt_row gt_right">0.35%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_del15.ct" class="gt_row gt_right">2694</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr_del15.ct_p" class="gt_row gt_right">24.05%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 carrier.ct" class="gt_row gt_right">640.84</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 carrier.ct_p" class="gt_row gt_right">5.72%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 weather.ct" class="gt_row gt_right">59.48</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 weather.ct_p" class="gt_row gt_right">0.53%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 nas.ct" class="gt_row gt_right">1090.03</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 nas.ct_p" class="gt_row gt_right">9.73%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 security.ct" class="gt_row gt_right">0.00</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 security.ct_p" class="gt_row gt_right">0.00%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 late_aircraft.ct" class="gt_row gt_right">903.68</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 late_aircraft.ct_p" class="gt_row gt_right">8.07%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 arr.delay" class="gt_row gt_right">254148</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 carrier.delay" class="gt_row gt_right">79871</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 carrier.delay_p" class="gt_row gt_right">31.43%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 weather.delay" class="gt_row gt_right">8325</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 weather.delay_p" class="gt_row gt_right">3.28%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 nas.delay" class="gt_row gt_right">87490</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 nas.delay_p" class="gt_row gt_right">34.42%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 security.delay" class="gt_row gt_right">0</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 security.delay_p" class="gt_row gt_right">0.00%</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 late_aircraft.delay" class="gt_row gt_right">78462</td>
+<td headers="ExpressJet Airlines LLC (EV) stub_2_11 late_aircraft.delay_p" class="gt_row gt_right">30.87%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Frontier Airlines Inc. (F9) stub_2_12 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Frontier Airlines Inc. (F9)</td>
+<th id="stub_2_12" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 airports" class="gt_row gt_right gt_striped">92</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_flights.ct" class="gt_row gt_right gt_striped">12267</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 normal.ct" class="gt_row gt_right gt_striped">9233</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 normal.ct_p" class="gt_row gt_right gt_striped">75.27%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_cancelled.ct" class="gt_row gt_right gt_striped">139</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.13%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_diverted.ct" class="gt_row gt_right gt_striped">13</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.11%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_del15.ct" class="gt_row gt_right gt_striped">2882</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr_del15.ct_p" class="gt_row gt_right gt_striped">23.49%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 carrier.ct" class="gt_row gt_right gt_striped">899.14</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 carrier.ct_p" class="gt_row gt_right gt_striped">7.33%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 weather.ct" class="gt_row gt_right gt_striped">23.88</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 weather.ct_p" class="gt_row gt_right gt_striped">0.19%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 nas.ct" class="gt_row gt_right gt_striped">910.20</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 nas.ct_p" class="gt_row gt_right gt_striped">7.42%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 security.ct" class="gt_row gt_right gt_striped">0.00</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 security.ct_p" class="gt_row gt_right gt_striped">0.00%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 late_aircraft.ct" class="gt_row gt_right gt_striped">1048.83</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 late_aircraft.ct_p" class="gt_row gt_right gt_striped">8.55%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 arr.delay" class="gt_row gt_right gt_striped">193371</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 carrier.delay" class="gt_row gt_right gt_striped">57460</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 carrier.delay_p" class="gt_row gt_right gt_striped">29.71%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 weather.delay" class="gt_row gt_right gt_striped">1633</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 weather.delay_p" class="gt_row gt_right gt_striped">0.84%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 nas.delay" class="gt_row gt_right gt_striped">44321</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 nas.delay_p" class="gt_row gt_right gt_striped">22.92%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 security.delay" class="gt_row gt_right gt_striped">0</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 security.delay_p" class="gt_row gt_right gt_striped">0.00%</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 late_aircraft.delay" class="gt_row gt_right gt_striped">89957</td>
+<td headers="Frontier Airlines Inc. (F9) stub_2_12 late_aircraft.delay_p" class="gt_row gt_right gt_striped">46.52%</td></tr>
+    <tr><th id="airports_13" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Frontier Airlines Inc. (F9) airports_13 airports" class="gt_row gt_right">92</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_flights.ct" class="gt_row gt_right">7320</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 normal.ct" class="gt_row gt_right">6511</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 normal.ct_p" class="gt_row gt_right">88.95%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_cancelled.ct" class="gt_row gt_right">36</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_cancelled.ct_p" class="gt_row gt_right">0.49%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_diverted.ct" class="gt_row gt_right">1</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_diverted.ct_p" class="gt_row gt_right">0.01%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_del15.ct" class="gt_row gt_right">772</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr_del15.ct_p" class="gt_row gt_right">10.55%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 carrier.ct" class="gt_row gt_right">211.25</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 carrier.ct_p" class="gt_row gt_right">2.89%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 weather.ct" class="gt_row gt_right">14.97</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 weather.ct_p" class="gt_row gt_right">0.20%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 nas.ct" class="gt_row gt_right">387.27</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 nas.ct_p" class="gt_row gt_right">5.29%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 security.ct" class="gt_row gt_right">0.00</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 security.ct_p" class="gt_row gt_right">0.00%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 late_aircraft.ct" class="gt_row gt_right">158.53</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 late_aircraft.ct_p" class="gt_row gt_right">2.17%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 arr.delay" class="gt_row gt_right">39325</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 carrier.delay" class="gt_row gt_right">13118</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 carrier.delay_p" class="gt_row gt_right">33.36%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 weather.delay" class="gt_row gt_right">1111</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 weather.delay_p" class="gt_row gt_right">2.83%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 nas.delay" class="gt_row gt_right">15496</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 nas.delay_p" class="gt_row gt_right">39.40%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 security.delay" class="gt_row gt_right">0</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 security.delay_p" class="gt_row gt_right">0.00%</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 late_aircraft.delay" class="gt_row gt_right">9600</td>
+<td headers="Frontier Airlines Inc. (F9) airports_13 late_aircraft.delay_p" class="gt_row gt_right">24.41%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Allegiant Air (G4) stub_2_14 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Allegiant Air (G4)</td>
+<th id="stub_2_14" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Allegiant Air (G4) stub_2_14 airports" class="gt_row gt_right gt_striped">121</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_flights.ct" class="gt_row gt_right gt_striped">9381</td>
+<td headers="Allegiant Air (G4) stub_2_14 normal.ct" class="gt_row gt_right gt_striped">6901</td>
+<td headers="Allegiant Air (G4) stub_2_14 normal.ct_p" class="gt_row gt_right gt_striped">73.56%</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_cancelled.ct" class="gt_row gt_right gt_striped">70</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.75%</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_diverted.ct" class="gt_row gt_right gt_striped">15</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.16%</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_del15.ct" class="gt_row gt_right gt_striped">2395</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr_del15.ct_p" class="gt_row gt_right gt_striped">25.53%</td>
+<td headers="Allegiant Air (G4) stub_2_14 carrier.ct" class="gt_row gt_right gt_striped">532.30</td>
+<td headers="Allegiant Air (G4) stub_2_14 carrier.ct_p" class="gt_row gt_right gt_striped">5.67%</td>
+<td headers="Allegiant Air (G4) stub_2_14 weather.ct" class="gt_row gt_right gt_striped">136.57</td>
+<td headers="Allegiant Air (G4) stub_2_14 weather.ct_p" class="gt_row gt_right gt_striped">1.46%</td>
+<td headers="Allegiant Air (G4) stub_2_14 nas.ct" class="gt_row gt_right gt_striped">684.02</td>
+<td headers="Allegiant Air (G4) stub_2_14 nas.ct_p" class="gt_row gt_right gt_striped">7.29%</td>
+<td headers="Allegiant Air (G4) stub_2_14 security.ct" class="gt_row gt_right gt_striped">22.17</td>
+<td headers="Allegiant Air (G4) stub_2_14 security.ct_p" class="gt_row gt_right gt_striped">0.24%</td>
+<td headers="Allegiant Air (G4) stub_2_14 late_aircraft.ct" class="gt_row gt_right gt_striped">1019.96</td>
+<td headers="Allegiant Air (G4) stub_2_14 late_aircraft.ct_p" class="gt_row gt_right gt_striped">10.87%</td>
+<td headers="Allegiant Air (G4) stub_2_14 arr.delay" class="gt_row gt_right gt_striped">160333</td>
+<td headers="Allegiant Air (G4) stub_2_14 carrier.delay" class="gt_row gt_right gt_striped">51789</td>
+<td headers="Allegiant Air (G4) stub_2_14 carrier.delay_p" class="gt_row gt_right gt_striped">32.30%</td>
+<td headers="Allegiant Air (G4) stub_2_14 weather.delay" class="gt_row gt_right gt_striped">12268</td>
+<td headers="Allegiant Air (G4) stub_2_14 weather.delay_p" class="gt_row gt_right gt_striped">7.65%</td>
+<td headers="Allegiant Air (G4) stub_2_14 nas.delay" class="gt_row gt_right gt_striped">27541</td>
+<td headers="Allegiant Air (G4) stub_2_14 nas.delay_p" class="gt_row gt_right gt_striped">17.18%</td>
+<td headers="Allegiant Air (G4) stub_2_14 security.delay" class="gt_row gt_right gt_striped">804</td>
+<td headers="Allegiant Air (G4) stub_2_14 security.delay_p" class="gt_row gt_right gt_striped">0.50%</td>
+<td headers="Allegiant Air (G4) stub_2_14 late_aircraft.delay" class="gt_row gt_right gt_striped">67931</td>
+<td headers="Allegiant Air (G4) stub_2_14 late_aircraft.delay_p" class="gt_row gt_right gt_striped">42.37%</td></tr>
+    <tr><th id="airports_15" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Allegiant Air (G4) airports_15 airports" class="gt_row gt_right">119</td>
+<td headers="Allegiant Air (G4) airports_15 arr_flights.ct" class="gt_row gt_right">7368</td>
+<td headers="Allegiant Air (G4) airports_15 normal.ct" class="gt_row gt_right">6111</td>
+<td headers="Allegiant Air (G4) airports_15 normal.ct_p" class="gt_row gt_right">82.94%</td>
+<td headers="Allegiant Air (G4) airports_15 arr_cancelled.ct" class="gt_row gt_right">152</td>
+<td headers="Allegiant Air (G4) airports_15 arr_cancelled.ct_p" class="gt_row gt_right">2.06%</td>
+<td headers="Allegiant Air (G4) airports_15 arr_diverted.ct" class="gt_row gt_right">20</td>
+<td headers="Allegiant Air (G4) airports_15 arr_diverted.ct_p" class="gt_row gt_right">0.27%</td>
+<td headers="Allegiant Air (G4) airports_15 arr_del15.ct" class="gt_row gt_right">1085</td>
+<td headers="Allegiant Air (G4) airports_15 arr_del15.ct_p" class="gt_row gt_right">14.73%</td>
+<td headers="Allegiant Air (G4) airports_15 carrier.ct" class="gt_row gt_right">305.28</td>
+<td headers="Allegiant Air (G4) airports_15 carrier.ct_p" class="gt_row gt_right">4.14%</td>
+<td headers="Allegiant Air (G4) airports_15 weather.ct" class="gt_row gt_right">48.54</td>
+<td headers="Allegiant Air (G4) airports_15 weather.ct_p" class="gt_row gt_right">0.66%</td>
+<td headers="Allegiant Air (G4) airports_15 nas.ct" class="gt_row gt_right">348.97</td>
+<td headers="Allegiant Air (G4) airports_15 nas.ct_p" class="gt_row gt_right">4.74%</td>
+<td headers="Allegiant Air (G4) airports_15 security.ct" class="gt_row gt_right">1.23</td>
+<td headers="Allegiant Air (G4) airports_15 security.ct_p" class="gt_row gt_right">0.02%</td>
+<td headers="Allegiant Air (G4) airports_15 late_aircraft.ct" class="gt_row gt_right">381.03</td>
+<td headers="Allegiant Air (G4) airports_15 late_aircraft.ct_p" class="gt_row gt_right">5.17%</td>
+<td headers="Allegiant Air (G4) airports_15 arr.delay" class="gt_row gt_right">80381</td>
+<td headers="Allegiant Air (G4) airports_15 carrier.delay" class="gt_row gt_right">27609</td>
+<td headers="Allegiant Air (G4) airports_15 carrier.delay_p" class="gt_row gt_right">34.35%</td>
+<td headers="Allegiant Air (G4) airports_15 weather.delay" class="gt_row gt_right">3952</td>
+<td headers="Allegiant Air (G4) airports_15 weather.delay_p" class="gt_row gt_right">4.92%</td>
+<td headers="Allegiant Air (G4) airports_15 nas.delay" class="gt_row gt_right">21019</td>
+<td headers="Allegiant Air (G4) airports_15 nas.delay_p" class="gt_row gt_right">26.15%</td>
+<td headers="Allegiant Air (G4) airports_15 security.delay" class="gt_row gt_right">79</td>
+<td headers="Allegiant Air (G4) airports_15 security.delay_p" class="gt_row gt_right">0.10%</td>
+<td headers="Allegiant Air (G4) airports_15 late_aircraft.delay" class="gt_row gt_right">27722</td>
+<td headers="Allegiant Air (G4) airports_15 late_aircraft.delay_p" class="gt_row gt_right">34.49%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Hawaiian Airlines Inc. (HA) stub_2_16 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Hawaiian Airlines Inc. (HA)</td>
+<th id="stub_2_16" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 airports" class="gt_row gt_right gt_striped">19</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_flights.ct" class="gt_row gt_right gt_striped">7276</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 normal.ct" class="gt_row gt_right gt_striped">6454</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 normal.ct_p" class="gt_row gt_right gt_striped">88.70%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_cancelled.ct" class="gt_row gt_right gt_striped">8</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.11%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_diverted.ct" class="gt_row gt_right gt_striped">1</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.01%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_del15.ct" class="gt_row gt_right gt_striped">813</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr_del15.ct_p" class="gt_row gt_right gt_striped">11.17%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 carrier.ct" class="gt_row gt_right gt_striped">557.16</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 carrier.ct_p" class="gt_row gt_right gt_striped">7.66%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 weather.ct" class="gt_row gt_right gt_striped">15.43</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 weather.ct_p" class="gt_row gt_right gt_striped">0.21%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 nas.ct" class="gt_row gt_right gt_striped">15.24</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 nas.ct_p" class="gt_row gt_right gt_striped">0.21%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 security.ct" class="gt_row gt_right gt_striped">4.61</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 security.ct_p" class="gt_row gt_right gt_striped">0.06%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 late_aircraft.ct" class="gt_row gt_right gt_striped">220.56</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 late_aircraft.ct_p" class="gt_row gt_right gt_striped">3.03%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 arr.delay" class="gt_row gt_right gt_striped">28379</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 carrier.delay" class="gt_row gt_right gt_striped">20721</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 carrier.delay_p" class="gt_row gt_right gt_striped">73.02%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 weather.delay" class="gt_row gt_right gt_striped">452</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 weather.delay_p" class="gt_row gt_right gt_striped">1.59%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 nas.delay" class="gt_row gt_right gt_striped">369</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 nas.delay_p" class="gt_row gt_right gt_striped">1.30%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 security.delay" class="gt_row gt_right gt_striped">159</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 security.delay_p" class="gt_row gt_right gt_striped">0.56%</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 late_aircraft.delay" class="gt_row gt_right gt_striped">6678</td>
+<td headers="Hawaiian Airlines Inc. (HA) stub_2_16 late_aircraft.delay_p" class="gt_row gt_right gt_striped">23.53%</td></tr>
+    <tr><th id="airports_17" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 airports" class="gt_row gt_right">18</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_flights.ct" class="gt_row gt_right">3139</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 normal.ct" class="gt_row gt_right">2860</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 normal.ct_p" class="gt_row gt_right">91.11%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_cancelled.ct" class="gt_row gt_right">56</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_cancelled.ct_p" class="gt_row gt_right">1.78%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_diverted.ct" class="gt_row gt_right">4</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_diverted.ct_p" class="gt_row gt_right">0.13%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_del15.ct" class="gt_row gt_right">219</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr_del15.ct_p" class="gt_row gt_right">6.98%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 carrier.ct" class="gt_row gt_right">182.23</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 carrier.ct_p" class="gt_row gt_right">5.81%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 weather.ct" class="gt_row gt_right">4.34</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 weather.ct_p" class="gt_row gt_right">0.14%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 nas.ct" class="gt_row gt_right">1.54</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 nas.ct_p" class="gt_row gt_right">0.05%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 security.ct" class="gt_row gt_right">0.00</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 security.ct_p" class="gt_row gt_right">0.00%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 late_aircraft.ct" class="gt_row gt_right">30.87</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 late_aircraft.ct_p" class="gt_row gt_right">0.98%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 arr.delay" class="gt_row gt_right">10864</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 carrier.delay" class="gt_row gt_right">8282</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 carrier.delay_p" class="gt_row gt_right">76.23%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 weather.delay" class="gt_row gt_right">1504</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 weather.delay_p" class="gt_row gt_right">13.84%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 nas.delay" class="gt_row gt_right">43</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 nas.delay_p" class="gt_row gt_right">0.40%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 security.delay" class="gt_row gt_right">0</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 security.delay_p" class="gt_row gt_right">0.00%</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 late_aircraft.delay" class="gt_row gt_right">1035</td>
+<td headers="Hawaiian Airlines Inc. (HA) airports_17 late_aircraft.delay_p" class="gt_row gt_right">9.53%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Envoy Air (MQ) stub_2_18 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Envoy Air (MQ)</td>
+<th id="stub_2_18" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Envoy Air (MQ) stub_2_18 airports" class="gt_row gt_right gt_striped">153</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_flights.ct" class="gt_row gt_right gt_striped">27100</td>
+<td headers="Envoy Air (MQ) stub_2_18 normal.ct" class="gt_row gt_right gt_striped">21105</td>
+<td headers="Envoy Air (MQ) stub_2_18 normal.ct_p" class="gt_row gt_right gt_striped">77.88%</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_cancelled.ct" class="gt_row gt_right gt_striped">379</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.40%</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_diverted.ct" class="gt_row gt_right gt_striped">88</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.32%</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_del15.ct" class="gt_row gt_right gt_striped">5528</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr_del15.ct_p" class="gt_row gt_right gt_striped">20.40%</td>
+<td headers="Envoy Air (MQ) stub_2_18 carrier.ct" class="gt_row gt_right gt_striped">1125.09</td>
+<td headers="Envoy Air (MQ) stub_2_18 carrier.ct_p" class="gt_row gt_right gt_striped">4.15%</td>
+<td headers="Envoy Air (MQ) stub_2_18 weather.ct" class="gt_row gt_right gt_striped">334.85</td>
+<td headers="Envoy Air (MQ) stub_2_18 weather.ct_p" class="gt_row gt_right gt_striped">1.24%</td>
+<td headers="Envoy Air (MQ) stub_2_18 nas.ct" class="gt_row gt_right gt_striped">1688.88</td>
+<td headers="Envoy Air (MQ) stub_2_18 nas.ct_p" class="gt_row gt_right gt_striped">6.23%</td>
+<td headers="Envoy Air (MQ) stub_2_18 security.ct" class="gt_row gt_right gt_striped">8.50</td>
+<td headers="Envoy Air (MQ) stub_2_18 security.ct_p" class="gt_row gt_right gt_striped">0.03%</td>
+<td headers="Envoy Air (MQ) stub_2_18 late_aircraft.ct" class="gt_row gt_right gt_striped">2370.64</td>
+<td headers="Envoy Air (MQ) stub_2_18 late_aircraft.ct_p" class="gt_row gt_right gt_striped">8.75%</td>
+<td headers="Envoy Air (MQ) stub_2_18 arr.delay" class="gt_row gt_right gt_striped">368659</td>
+<td headers="Envoy Air (MQ) stub_2_18 carrier.delay" class="gt_row gt_right gt_striped">79169</td>
+<td headers="Envoy Air (MQ) stub_2_18 carrier.delay_p" class="gt_row gt_right gt_striped">21.47%</td>
+<td headers="Envoy Air (MQ) stub_2_18 weather.delay" class="gt_row gt_right gt_striped">39127</td>
+<td headers="Envoy Air (MQ) stub_2_18 weather.delay_p" class="gt_row gt_right gt_striped">10.61%</td>
+<td headers="Envoy Air (MQ) stub_2_18 nas.delay" class="gt_row gt_right gt_striped">74871</td>
+<td headers="Envoy Air (MQ) stub_2_18 nas.delay_p" class="gt_row gt_right gt_striped">20.31%</td>
+<td headers="Envoy Air (MQ) stub_2_18 security.delay" class="gt_row gt_right gt_striped">286</td>
+<td headers="Envoy Air (MQ) stub_2_18 security.delay_p" class="gt_row gt_right gt_striped">0.08%</td>
+<td headers="Envoy Air (MQ) stub_2_18 late_aircraft.delay" class="gt_row gt_right gt_striped">175206</td>
+<td headers="Envoy Air (MQ) stub_2_18 late_aircraft.delay_p" class="gt_row gt_right gt_striped">47.53%</td></tr>
+    <tr><th id="airports_19" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Envoy Air (MQ) airports_19 airports" class="gt_row gt_right">132</td>
+<td headers="Envoy Air (MQ) airports_19 arr_flights.ct" class="gt_row gt_right">16814</td>
+<td headers="Envoy Air (MQ) airports_19 normal.ct" class="gt_row gt_right">14060</td>
+<td headers="Envoy Air (MQ) airports_19 normal.ct_p" class="gt_row gt_right">83.62%</td>
+<td headers="Envoy Air (MQ) airports_19 arr_cancelled.ct" class="gt_row gt_right">182</td>
+<td headers="Envoy Air (MQ) airports_19 arr_cancelled.ct_p" class="gt_row gt_right">1.08%</td>
+<td headers="Envoy Air (MQ) airports_19 arr_diverted.ct" class="gt_row gt_right">30</td>
+<td headers="Envoy Air (MQ) airports_19 arr_diverted.ct_p" class="gt_row gt_right">0.18%</td>
+<td headers="Envoy Air (MQ) airports_19 arr_del15.ct" class="gt_row gt_right">2542</td>
+<td headers="Envoy Air (MQ) airports_19 arr_del15.ct_p" class="gt_row gt_right">15.12%</td>
+<td headers="Envoy Air (MQ) airports_19 carrier.ct" class="gt_row gt_right">522.63</td>
+<td headers="Envoy Air (MQ) airports_19 carrier.ct_p" class="gt_row gt_right">3.11%</td>
+<td headers="Envoy Air (MQ) airports_19 weather.ct" class="gt_row gt_right">122.74</td>
+<td headers="Envoy Air (MQ) airports_19 weather.ct_p" class="gt_row gt_right">0.73%</td>
+<td headers="Envoy Air (MQ) airports_19 nas.ct" class="gt_row gt_right">1350.47</td>
+<td headers="Envoy Air (MQ) airports_19 nas.ct_p" class="gt_row gt_right">8.03%</td>
+<td headers="Envoy Air (MQ) airports_19 security.ct" class="gt_row gt_right">10.72</td>
+<td headers="Envoy Air (MQ) airports_19 security.ct_p" class="gt_row gt_right">0.06%</td>
+<td headers="Envoy Air (MQ) airports_19 late_aircraft.ct" class="gt_row gt_right">535.49</td>
+<td headers="Envoy Air (MQ) airports_19 late_aircraft.ct_p" class="gt_row gt_right">3.18%</td>
+<td headers="Envoy Air (MQ) airports_19 arr.delay" class="gt_row gt_right">136506</td>
+<td headers="Envoy Air (MQ) airports_19 carrier.delay" class="gt_row gt_right">32513</td>
+<td headers="Envoy Air (MQ) airports_19 carrier.delay_p" class="gt_row gt_right">23.82%</td>
+<td headers="Envoy Air (MQ) airports_19 weather.delay" class="gt_row gt_right">14060</td>
+<td headers="Envoy Air (MQ) airports_19 weather.delay_p" class="gt_row gt_right">10.30%</td>
+<td headers="Envoy Air (MQ) airports_19 nas.delay" class="gt_row gt_right">50354</td>
+<td headers="Envoy Air (MQ) airports_19 nas.delay_p" class="gt_row gt_right">36.89%</td>
+<td headers="Envoy Air (MQ) airports_19 security.delay" class="gt_row gt_right">360</td>
+<td headers="Envoy Air (MQ) airports_19 security.delay_p" class="gt_row gt_right">0.26%</td>
+<td headers="Envoy Air (MQ) airports_19 late_aircraft.delay" class="gt_row gt_right">39219</td>
+<td headers="Envoy Air (MQ) airports_19 late_aircraft.delay_p" class="gt_row gt_right">28.73%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Spirit Air Lines (NK) stub_2_20 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Spirit Air Lines (NK)</td>
+<th id="stub_2_20" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Spirit Air Lines (NK) stub_2_20 airports" class="gt_row gt_right gt_striped">51</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_flights.ct" class="gt_row gt_right gt_striped">17299</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 normal.ct" class="gt_row gt_right gt_striped">14052</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 normal.ct_p" class="gt_row gt_right gt_striped">81.23%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_cancelled.ct" class="gt_row gt_right gt_striped">98</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.57%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_diverted.ct" class="gt_row gt_right gt_striped">25</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.14%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_del15.ct" class="gt_row gt_right gt_striped">3124</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr_del15.ct_p" class="gt_row gt_right gt_striped">18.06%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 carrier.ct" class="gt_row gt_right gt_striped">744.18</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 carrier.ct_p" class="gt_row gt_right gt_striped">4.30%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 weather.ct" class="gt_row gt_right gt_striped">77.41</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 weather.ct_p" class="gt_row gt_right gt_striped">0.45%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 nas.ct" class="gt_row gt_right gt_striped">1549.82</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 nas.ct_p" class="gt_row gt_right gt_striped">8.96%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 security.ct" class="gt_row gt_right gt_striped">27.53</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 security.ct_p" class="gt_row gt_right gt_striped">0.16%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 late_aircraft.ct" class="gt_row gt_right gt_striped">725.10</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 late_aircraft.ct_p" class="gt_row gt_right gt_striped">4.19%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 arr.delay" class="gt_row gt_right gt_striped">207161</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 carrier.delay" class="gt_row gt_right gt_striped">49635</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 carrier.delay_p" class="gt_row gt_right gt_striped">23.96%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 weather.delay" class="gt_row gt_right gt_striped">9233</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 weather.delay_p" class="gt_row gt_right gt_striped">4.46%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 nas.delay" class="gt_row gt_right gt_striped">88978</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 nas.delay_p" class="gt_row gt_right gt_striped">42.95%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 security.delay" class="gt_row gt_right gt_striped">943</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 security.delay_p" class="gt_row gt_right gt_striped">0.46%</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 late_aircraft.delay" class="gt_row gt_right gt_striped">58372</td>
+<td headers="Spirit Air Lines (NK) stub_2_20 late_aircraft.delay_p" class="gt_row gt_right gt_striped">28.18%</td></tr>
+    <tr><th id="airports_21" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Spirit Air Lines (NK) airports_21 airports" class="gt_row gt_right">46</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_flights.ct" class="gt_row gt_right">12745</td>
+<td headers="Spirit Air Lines (NK) airports_21 normal.ct" class="gt_row gt_right">10692</td>
+<td headers="Spirit Air Lines (NK) airports_21 normal.ct_p" class="gt_row gt_right">83.89%</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_cancelled.ct" class="gt_row gt_right">136</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_cancelled.ct_p" class="gt_row gt_right">1.07%</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_diverted.ct" class="gt_row gt_right">21</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_diverted.ct_p" class="gt_row gt_right">0.16%</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_del15.ct" class="gt_row gt_right">1896</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr_del15.ct_p" class="gt_row gt_right">14.88%</td>
+<td headers="Spirit Air Lines (NK) airports_21 carrier.ct" class="gt_row gt_right">441.37</td>
+<td headers="Spirit Air Lines (NK) airports_21 carrier.ct_p" class="gt_row gt_right">3.46%</td>
+<td headers="Spirit Air Lines (NK) airports_21 weather.ct" class="gt_row gt_right">36.67</td>
+<td headers="Spirit Air Lines (NK) airports_21 weather.ct_p" class="gt_row gt_right">0.29%</td>
+<td headers="Spirit Air Lines (NK) airports_21 nas.ct" class="gt_row gt_right">1036.22</td>
+<td headers="Spirit Air Lines (NK) airports_21 nas.ct_p" class="gt_row gt_right">8.13%</td>
+<td headers="Spirit Air Lines (NK) airports_21 security.ct" class="gt_row gt_right">29.36</td>
+<td headers="Spirit Air Lines (NK) airports_21 security.ct_p" class="gt_row gt_right">0.23%</td>
+<td headers="Spirit Air Lines (NK) airports_21 late_aircraft.ct" class="gt_row gt_right">352.38</td>
+<td headers="Spirit Air Lines (NK) airports_21 late_aircraft.ct_p" class="gt_row gt_right">2.76%</td>
+<td headers="Spirit Air Lines (NK) airports_21 arr.delay" class="gt_row gt_right">100071</td>
+<td headers="Spirit Air Lines (NK) airports_21 carrier.delay" class="gt_row gt_right">23750</td>
+<td headers="Spirit Air Lines (NK) airports_21 carrier.delay_p" class="gt_row gt_right">23.73%</td>
+<td headers="Spirit Air Lines (NK) airports_21 weather.delay" class="gt_row gt_right">3652</td>
+<td headers="Spirit Air Lines (NK) airports_21 weather.delay_p" class="gt_row gt_right">3.65%</td>
+<td headers="Spirit Air Lines (NK) airports_21 nas.delay" class="gt_row gt_right">47981</td>
+<td headers="Spirit Air Lines (NK) airports_21 nas.delay_p" class="gt_row gt_right">47.95%</td>
+<td headers="Spirit Air Lines (NK) airports_21 security.delay" class="gt_row gt_right">824</td>
+<td headers="Spirit Air Lines (NK) airports_21 security.delay_p" class="gt_row gt_right">0.82%</td>
+<td headers="Spirit Air Lines (NK) airports_21 late_aircraft.delay" class="gt_row gt_right">23864</td>
+<td headers="Spirit Air Lines (NK) airports_21 late_aircraft.delay_p" class="gt_row gt_right">23.85%</td></tr>
+    <tr class="gt_row_group_first"><td headers="PSA Airlines Inc. (OH) stub_2_22 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">PSA Airlines Inc. (OH)</td>
+<th id="stub_2_22" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 airports" class="gt_row gt_right gt_striped">94</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_flights.ct" class="gt_row gt_right gt_striped">24276</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 normal.ct" class="gt_row gt_right gt_striped">18162</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 normal.ct_p" class="gt_row gt_right gt_striped">74.81%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_cancelled.ct" class="gt_row gt_right gt_striped">273</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.12%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_diverted.ct" class="gt_row gt_right gt_striped">72</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.30%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_del15.ct" class="gt_row gt_right gt_striped">5769</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr_del15.ct_p" class="gt_row gt_right gt_striped">23.76%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 carrier.ct" class="gt_row gt_right gt_striped">1402.53</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 carrier.ct_p" class="gt_row gt_right gt_striped">5.78%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 weather.ct" class="gt_row gt_right gt_striped">111.56</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 weather.ct_p" class="gt_row gt_right gt_striped">0.46%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 nas.ct" class="gt_row gt_right gt_striped">1503.57</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 nas.ct_p" class="gt_row gt_right gt_striped">6.19%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 security.ct" class="gt_row gt_right gt_striped">6.98</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 security.ct_p" class="gt_row gt_right gt_striped">0.03%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 late_aircraft.ct" class="gt_row gt_right gt_striped">2744.29</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 late_aircraft.ct_p" class="gt_row gt_right gt_striped">11.30%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 arr.delay" class="gt_row gt_right gt_striped">392976</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 carrier.delay" class="gt_row gt_right gt_striped">101718</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 carrier.delay_p" class="gt_row gt_right gt_striped">25.88%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 weather.delay" class="gt_row gt_right gt_striped">12629</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 weather.delay_p" class="gt_row gt_right gt_striped">3.21%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 nas.delay" class="gt_row gt_right gt_striped">58039</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 nas.delay_p" class="gt_row gt_right gt_striped">14.77%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 security.delay" class="gt_row gt_right gt_striped">349</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 security.delay_p" class="gt_row gt_right gt_striped">0.09%</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 late_aircraft.delay" class="gt_row gt_right gt_striped">220241</td>
+<td headers="PSA Airlines Inc. (OH) stub_2_22 late_aircraft.delay_p" class="gt_row gt_right gt_striped">56.04%</td></tr>
+    <tr><th id="airports_23" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="PSA Airlines Inc. (OH) airports_23 airports" class="gt_row gt_right">93</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_flights.ct" class="gt_row gt_right">14291</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 normal.ct" class="gt_row gt_right">12817</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 normal.ct_p" class="gt_row gt_right">89.69%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_cancelled.ct" class="gt_row gt_right">64</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_cancelled.ct_p" class="gt_row gt_right">0.45%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_diverted.ct" class="gt_row gt_right">17</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_diverted.ct_p" class="gt_row gt_right">0.12%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_del15.ct" class="gt_row gt_right">1393</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr_del15.ct_p" class="gt_row gt_right">9.75%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 carrier.ct" class="gt_row gt_right">478.91</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 carrier.ct_p" class="gt_row gt_right">3.35%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 weather.ct" class="gt_row gt_right">33.55</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 weather.ct_p" class="gt_row gt_right">0.23%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 nas.ct" class="gt_row gt_right">549.94</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 nas.ct_p" class="gt_row gt_right">3.85%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 security.ct" class="gt_row gt_right">11.03</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 security.ct_p" class="gt_row gt_right">0.08%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 late_aircraft.ct" class="gt_row gt_right">319.56</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 late_aircraft.ct_p" class="gt_row gt_right">2.24%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 arr.delay" class="gt_row gt_right">86976</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 carrier.delay" class="gt_row gt_right">36183</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 carrier.delay_p" class="gt_row gt_right">41.60%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 weather.delay" class="gt_row gt_right">5459</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 weather.delay_p" class="gt_row gt_right">6.28%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 nas.delay" class="gt_row gt_right">15421</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 nas.delay_p" class="gt_row gt_right">17.73%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 security.delay" class="gt_row gt_right">438</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 security.delay_p" class="gt_row gt_right">0.50%</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 late_aircraft.delay" class="gt_row gt_right">29475</td>
+<td headers="PSA Airlines Inc. (OH) airports_23 late_aircraft.delay_p" class="gt_row gt_right">33.89%</td></tr>
+    <tr class="gt_row_group_first"><td headers="SkyWest Airlines Inc. (OO) stub_2_24 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">SkyWest Airlines Inc. (OO)</td>
+<th id="stub_2_24" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 airports" class="gt_row gt_right gt_striped">256</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_flights.ct" class="gt_row gt_right gt_striped">72004</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 normal.ct" class="gt_row gt_right gt_striped">56268</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 normal.ct_p" class="gt_row gt_right gt_striped">78.15%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_cancelled.ct" class="gt_row gt_right gt_striped">1531</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">2.13%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_diverted.ct" class="gt_row gt_right gt_striped">340</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.47%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_del15.ct" class="gt_row gt_right gt_striped">13865</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr_del15.ct_p" class="gt_row gt_right gt_striped">19.26%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 carrier.ct" class="gt_row gt_right gt_striped">3672.43</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 carrier.ct_p" class="gt_row gt_right gt_striped">5.10%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 weather.ct" class="gt_row gt_right gt_striped">699.02</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 weather.ct_p" class="gt_row gt_right gt_striped">0.97%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 nas.ct" class="gt_row gt_right gt_striped">3605.49</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 nas.ct_p" class="gt_row gt_right gt_striped">5.01%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 security.ct" class="gt_row gt_right gt_striped">24.60</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 security.ct_p" class="gt_row gt_right gt_striped">0.03%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 late_aircraft.ct" class="gt_row gt_right gt_striped">5863.44</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 late_aircraft.ct_p" class="gt_row gt_right gt_striped">8.14%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 arr.delay" class="gt_row gt_right gt_striped">1272226</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 carrier.delay" class="gt_row gt_right gt_striped">473345</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 carrier.delay_p" class="gt_row gt_right gt_striped">37.21%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 weather.delay" class="gt_row gt_right gt_striped">127948</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 weather.delay_p" class="gt_row gt_right gt_striped">10.06%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 nas.delay" class="gt_row gt_right gt_striped">185341</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 nas.delay_p" class="gt_row gt_right gt_striped">14.57%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 security.delay" class="gt_row gt_right gt_striped">838</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 security.delay_p" class="gt_row gt_right gt_striped">0.07%</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 late_aircraft.delay" class="gt_row gt_right gt_striped">484754</td>
+<td headers="SkyWest Airlines Inc. (OO) stub_2_24 late_aircraft.delay_p" class="gt_row gt_right gt_striped">38.10%</td></tr>
+    <tr><th id="airports_25" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 airports" class="gt_row gt_right">226</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_flights.ct" class="gt_row gt_right">54674</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 normal.ct" class="gt_row gt_right">47174</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 normal.ct_p" class="gt_row gt_right">86.28%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_cancelled.ct" class="gt_row gt_right">539</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_cancelled.ct_p" class="gt_row gt_right">0.99%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_diverted.ct" class="gt_row gt_right">152</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_diverted.ct_p" class="gt_row gt_right">0.28%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_del15.ct" class="gt_row gt_right">6809</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr_del15.ct_p" class="gt_row gt_right">12.45%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 carrier.ct" class="gt_row gt_right">4556.00</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 carrier.ct_p" class="gt_row gt_right">8.33%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 weather.ct" class="gt_row gt_right">755.00</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 weather.ct_p" class="gt_row gt_right">1.38%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 nas.ct" class="gt_row gt_right">371.00</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 nas.ct_p" class="gt_row gt_right">0.68%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 security.ct" class="gt_row gt_right">20.00</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 security.ct_p" class="gt_row gt_right">0.04%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 late_aircraft.ct" class="gt_row gt_right">1107.00</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 late_aircraft.ct_p" class="gt_row gt_right">2.02%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 arr.delay" class="gt_row gt_right">531774</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 carrier.delay" class="gt_row gt_right">315598</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 carrier.delay_p" class="gt_row gt_right">59.35%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 weather.delay" class="gt_row gt_right">91654</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 weather.delay_p" class="gt_row gt_right">17.24%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 nas.delay" class="gt_row gt_right">34402</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 nas.delay_p" class="gt_row gt_right">6.47%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 security.delay" class="gt_row gt_right">909</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 security.delay_p" class="gt_row gt_right">0.17%</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 late_aircraft.delay" class="gt_row gt_right">89211</td>
+<td headers="SkyWest Airlines Inc. (OO) airports_25 late_aircraft.delay_p" class="gt_row gt_right">16.78%</td></tr>
+    <tr class="gt_row_group_first"><td headers="United Air Lines Inc. (UA) stub_2_26 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">United Air Lines Inc. (UA)</td>
+<th id="stub_2_26" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="United Air Lines Inc. (UA) stub_2_26 airports" class="gt_row gt_right gt_striped">106</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_flights.ct" class="gt_row gt_right gt_striped">51291</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 normal.ct" class="gt_row gt_right gt_striped">40367</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 normal.ct_p" class="gt_row gt_right gt_striped">78.70%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_cancelled.ct" class="gt_row gt_right gt_striped">139</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">0.27%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_diverted.ct" class="gt_row gt_right gt_striped">92</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.18%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_del15.ct" class="gt_row gt_right gt_striped">10693</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr_del15.ct_p" class="gt_row gt_right gt_striped">20.85%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 carrier.ct" class="gt_row gt_right gt_striped">2318.00</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 carrier.ct_p" class="gt_row gt_right gt_striped">4.52%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 weather.ct" class="gt_row gt_right gt_striped">248.90</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 weather.ct_p" class="gt_row gt_right gt_striped">0.49%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 nas.ct" class="gt_row gt_right gt_striped">4581.42</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 nas.ct_p" class="gt_row gt_right gt_striped">8.93%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 security.ct" class="gt_row gt_right gt_striped">0.00</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 security.ct_p" class="gt_row gt_right gt_striped">0.00%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 late_aircraft.ct" class="gt_row gt_right gt_striped">3544.75</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 late_aircraft.ct_p" class="gt_row gt_right gt_striped">6.91%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 arr.delay" class="gt_row gt_right gt_striped">750628</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 carrier.delay" class="gt_row gt_right gt_striped">161066</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 carrier.delay_p" class="gt_row gt_right gt_striped">21.46%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 weather.delay" class="gt_row gt_right gt_striped">27418</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 weather.delay_p" class="gt_row gt_right gt_striped">3.65%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 nas.delay" class="gt_row gt_right gt_striped">255759</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 nas.delay_p" class="gt_row gt_right gt_striped">34.07%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 security.delay" class="gt_row gt_right gt_striped">0</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 security.delay_p" class="gt_row gt_right gt_striped">0.00%</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 late_aircraft.delay" class="gt_row gt_right gt_striped">306385</td>
+<td headers="United Air Lines Inc. (UA) stub_2_26 late_aircraft.delay_p" class="gt_row gt_right gt_striped">40.82%</td></tr>
+    <tr><th id="airports_27" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="United Air Lines Inc. (UA) airports_27 airports" class="gt_row gt_right">87</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_flights.ct" class="gt_row gt_right">25892</td>
+<td headers="United Air Lines Inc. (UA) airports_27 normal.ct" class="gt_row gt_right">22745</td>
+<td headers="United Air Lines Inc. (UA) airports_27 normal.ct_p" class="gt_row gt_right">87.85%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_cancelled.ct" class="gt_row gt_right">316</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_cancelled.ct_p" class="gt_row gt_right">1.22%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_diverted.ct" class="gt_row gt_right">26</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_diverted.ct_p" class="gt_row gt_right">0.10%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_del15.ct" class="gt_row gt_right">2805</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr_del15.ct_p" class="gt_row gt_right">10.83%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 carrier.ct" class="gt_row gt_right">973.67</td>
+<td headers="United Air Lines Inc. (UA) airports_27 carrier.ct_p" class="gt_row gt_right">3.76%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 weather.ct" class="gt_row gt_right">89.83</td>
+<td headers="United Air Lines Inc. (UA) airports_27 weather.ct_p" class="gt_row gt_right">0.35%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 nas.ct" class="gt_row gt_right">1173.07</td>
+<td headers="United Air Lines Inc. (UA) airports_27 nas.ct_p" class="gt_row gt_right">4.53%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 security.ct" class="gt_row gt_right">0.96</td>
+<td headers="United Air Lines Inc. (UA) airports_27 security.ct_p" class="gt_row gt_right">0.00%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 late_aircraft.ct" class="gt_row gt_right">567.48</td>
+<td headers="United Air Lines Inc. (UA) airports_27 late_aircraft.ct_p" class="gt_row gt_right">2.19%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 arr.delay" class="gt_row gt_right">153161</td>
+<td headers="United Air Lines Inc. (UA) airports_27 carrier.delay" class="gt_row gt_right">60624</td>
+<td headers="United Air Lines Inc. (UA) airports_27 carrier.delay_p" class="gt_row gt_right">39.58%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 weather.delay" class="gt_row gt_right">7573</td>
+<td headers="United Air Lines Inc. (UA) airports_27 weather.delay_p" class="gt_row gt_right">4.94%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 nas.delay" class="gt_row gt_right">38777</td>
+<td headers="United Air Lines Inc. (UA) airports_27 nas.delay_p" class="gt_row gt_right">25.32%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 security.delay" class="gt_row gt_right">118</td>
+<td headers="United Air Lines Inc. (UA) airports_27 security.delay_p" class="gt_row gt_right">0.08%</td>
+<td headers="United Air Lines Inc. (UA) airports_27 late_aircraft.delay" class="gt_row gt_right">46069</td>
+<td headers="United Air Lines Inc. (UA) airports_27 late_aircraft.delay_p" class="gt_row gt_right">30.08%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Southwest Airlines Co. (WN) stub_2_28 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Southwest Airlines Co. (WN)</td>
+<th id="stub_2_28" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 airports" class="gt_row gt_right gt_striped">88</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_flights.ct" class="gt_row gt_right gt_striped">114442</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 normal.ct" class="gt_row gt_right gt_striped">89118</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 normal.ct_p" class="gt_row gt_right gt_striped">77.87%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_cancelled.ct" class="gt_row gt_right gt_striped">1194</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.04%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_diverted.ct" class="gt_row gt_right gt_striped">137</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.12%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_del15.ct" class="gt_row gt_right gt_striped">23993</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr_del15.ct_p" class="gt_row gt_right gt_striped">20.97%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 carrier.ct" class="gt_row gt_right gt_striped">8682.66</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 carrier.ct_p" class="gt_row gt_right gt_striped">7.59%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 weather.ct" class="gt_row gt_right gt_striped">136.70</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 weather.ct_p" class="gt_row gt_right gt_striped">0.12%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 nas.ct" class="gt_row gt_right gt_striped">4184.09</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 nas.ct_p" class="gt_row gt_right gt_striped">3.66%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 security.ct" class="gt_row gt_right gt_striped">86.09</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 security.ct_p" class="gt_row gt_right gt_striped">0.08%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 late_aircraft.ct" class="gt_row gt_right gt_striped">10903.51</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 late_aircraft.ct_p" class="gt_row gt_right gt_striped">9.53%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 arr.delay" class="gt_row gt_right gt_striped">1143380</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 carrier.delay" class="gt_row gt_right gt_striped">401750</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 carrier.delay_p" class="gt_row gt_right gt_striped">35.14%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 weather.delay" class="gt_row gt_right gt_striped">11873</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 weather.delay_p" class="gt_row gt_right gt_striped">1.04%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 nas.delay" class="gt_row gt_right gt_striped">167596</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 nas.delay_p" class="gt_row gt_right gt_striped">14.66%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 security.delay" class="gt_row gt_right gt_striped">3742</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 security.delay_p" class="gt_row gt_right gt_striped">0.33%</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 late_aircraft.delay" class="gt_row gt_right gt_striped">558419</td>
+<td headers="Southwest Airlines Co. (WN) stub_2_28 late_aircraft.delay_p" class="gt_row gt_right gt_striped">48.84%</td></tr>
+    <tr><th id="airports_29" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Southwest Airlines Co. (WN) airports_29 airports" class="gt_row gt_right">93</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_flights.ct" class="gt_row gt_right">64342</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 normal.ct" class="gt_row gt_right">57055</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 normal.ct_p" class="gt_row gt_right">88.67%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_cancelled.ct" class="gt_row gt_right">635</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_cancelled.ct_p" class="gt_row gt_right">0.99%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_diverted.ct" class="gt_row gt_right">67</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_diverted.ct_p" class="gt_row gt_right">0.10%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_del15.ct" class="gt_row gt_right">6585</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr_del15.ct_p" class="gt_row gt_right">10.23%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 carrier.ct" class="gt_row gt_right">2720.38</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 carrier.ct_p" class="gt_row gt_right">4.23%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 weather.ct" class="gt_row gt_right">52.33</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 weather.ct_p" class="gt_row gt_right">0.08%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 nas.ct" class="gt_row gt_right">1685.35</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 nas.ct_p" class="gt_row gt_right">2.62%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 security.ct" class="gt_row gt_right">26.63</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 security.ct_p" class="gt_row gt_right">0.04%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 late_aircraft.ct" class="gt_row gt_right">2100.31</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 late_aircraft.ct_p" class="gt_row gt_right">3.26%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 arr.delay" class="gt_row gt_right">252703</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 carrier.delay" class="gt_row gt_right">104518</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 carrier.delay_p" class="gt_row gt_right">41.36%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 weather.delay" class="gt_row gt_right">3202</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 weather.delay_p" class="gt_row gt_right">1.27%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 nas.delay" class="gt_row gt_right">56764</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 nas.delay_p" class="gt_row gt_right">22.46%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 security.delay" class="gt_row gt_right">952</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 security.delay_p" class="gt_row gt_right">0.38%</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 late_aircraft.delay" class="gt_row gt_right">87267</td>
+<td headers="Southwest Airlines Co. (WN) airports_29 late_aircraft.delay_p" class="gt_row gt_right">34.53%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Mesa Airlines Inc. (YV) stub_2_30 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Mesa Airlines Inc. (YV)</td>
+<th id="stub_2_30" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 airports" class="gt_row gt_right gt_striped">120</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_flights.ct" class="gt_row gt_right gt_striped">18843</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 normal.ct" class="gt_row gt_right gt_striped">13965</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 normal.ct_p" class="gt_row gt_right gt_striped">74.11%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_cancelled.ct" class="gt_row gt_right gt_striped">298</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.58%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_diverted.ct" class="gt_row gt_right gt_striped">58</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.31%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_del15.ct" class="gt_row gt_right gt_striped">4522</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr_del15.ct_p" class="gt_row gt_right gt_striped">24.00%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 carrier.ct" class="gt_row gt_right gt_striped">1384.60</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 carrier.ct_p" class="gt_row gt_right gt_striped">7.35%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 weather.ct" class="gt_row gt_right gt_striped">158.79</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 weather.ct_p" class="gt_row gt_right gt_striped">0.84%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 nas.ct" class="gt_row gt_right gt_striped">756.73</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 nas.ct_p" class="gt_row gt_right gt_striped">4.02%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 security.ct" class="gt_row gt_right gt_striped">8.03</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 security.ct_p" class="gt_row gt_right gt_striped">0.04%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 late_aircraft.ct" class="gt_row gt_right gt_striped">2213.85</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 late_aircraft.ct_p" class="gt_row gt_right gt_striped">11.75%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 arr.delay" class="gt_row gt_right gt_striped">402360</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 carrier.delay" class="gt_row gt_right gt_striped">142485</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 carrier.delay_p" class="gt_row gt_right gt_striped">35.41%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 weather.delay" class="gt_row gt_right gt_striped">16910</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 weather.delay_p" class="gt_row gt_right gt_striped">4.20%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 nas.delay" class="gt_row gt_right gt_striped">30524</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 nas.delay_p" class="gt_row gt_right gt_striped">7.59%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 security.delay" class="gt_row gt_right gt_striped">348</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 security.delay_p" class="gt_row gt_right gt_striped">0.09%</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 late_aircraft.delay" class="gt_row gt_right gt_striped">212093</td>
+<td headers="Mesa Airlines Inc. (YV) stub_2_30 late_aircraft.delay_p" class="gt_row gt_right gt_striped">52.71%</td></tr>
+    <tr><th id="airports_31" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Mesa Airlines Inc. (YV) airports_31 airports" class="gt_row gt_right">99</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_flights.ct" class="gt_row gt_right">11659</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 normal.ct" class="gt_row gt_right">9606</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 normal.ct_p" class="gt_row gt_right">82.39%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_cancelled.ct" class="gt_row gt_right">188</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_cancelled.ct_p" class="gt_row gt_right">1.61%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_diverted.ct" class="gt_row gt_right">28</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_diverted.ct_p" class="gt_row gt_right">0.24%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_del15.ct" class="gt_row gt_right">1837</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr_del15.ct_p" class="gt_row gt_right">15.76%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 carrier.ct" class="gt_row gt_right">538.33</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 carrier.ct_p" class="gt_row gt_right">4.62%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 weather.ct" class="gt_row gt_right">68.59</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 weather.ct_p" class="gt_row gt_right">0.59%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 nas.ct" class="gt_row gt_right">755.26</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 nas.ct_p" class="gt_row gt_right">6.48%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 security.ct" class="gt_row gt_right">7.02</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 security.ct_p" class="gt_row gt_right">0.06%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 late_aircraft.ct" class="gt_row gt_right">467.75</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 late_aircraft.ct_p" class="gt_row gt_right">4.01%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 arr.delay" class="gt_row gt_right">128235</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 carrier.delay" class="gt_row gt_right">41934</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 carrier.delay_p" class="gt_row gt_right">32.70%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 weather.delay" class="gt_row gt_right">7677</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 weather.delay_p" class="gt_row gt_right">5.99%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 nas.delay" class="gt_row gt_right">36740</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 nas.delay_p" class="gt_row gt_right">28.65%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 security.delay" class="gt_row gt_right">248</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 security.delay_p" class="gt_row gt_right">0.19%</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 late_aircraft.delay" class="gt_row gt_right">41636</td>
+<td headers="Mesa Airlines Inc. (YV) airports_31 late_aircraft.delay_p" class="gt_row gt_right">32.47%</td></tr>
+    <tr class="gt_row_group_first"><td headers="Republic Airline (YX) stub_2_32 stub_1" rowspan="2" class="gt_row gt_left gt_stub_row_group">Republic Airline (YX)</td>
+<th id="stub_2_32" scope="row" class="gt_row gt_right gt_stub">2019</th>
+<td headers="Republic Airline (YX) stub_2_32 airports" class="gt_row gt_right gt_striped">103</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_flights.ct" class="gt_row gt_right gt_striped">28877</td>
+<td headers="Republic Airline (YX) stub_2_32 normal.ct" class="gt_row gt_right gt_striped">22206</td>
+<td headers="Republic Airline (YX) stub_2_32 normal.ct_p" class="gt_row gt_right gt_striped">76.90%</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_cancelled.ct" class="gt_row gt_right gt_striped">558</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_cancelled.ct_p" class="gt_row gt_right gt_striped">1.93%</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_diverted.ct" class="gt_row gt_right gt_striped">72</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_diverted.ct_p" class="gt_row gt_right gt_striped">0.25%</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_del15.ct" class="gt_row gt_right gt_striped">6041</td>
+<td headers="Republic Airline (YX) stub_2_32 arr_del15.ct_p" class="gt_row gt_right gt_striped">20.92%</td>
+<td headers="Republic Airline (YX) stub_2_32 carrier.ct" class="gt_row gt_right gt_striped">1152.77</td>
+<td headers="Republic Airline (YX) stub_2_32 carrier.ct_p" class="gt_row gt_right gt_striped">3.99%</td>
+<td headers="Republic Airline (YX) stub_2_32 weather.ct" class="gt_row gt_right gt_striped">131.62</td>
+<td headers="Republic Airline (YX) stub_2_32 weather.ct_p" class="gt_row gt_right gt_striped">0.46%</td>
+<td headers="Republic Airline (YX) stub_2_32 nas.ct" class="gt_row gt_right gt_striped">2560.35</td>
+<td headers="Republic Airline (YX) stub_2_32 nas.ct_p" class="gt_row gt_right gt_striped">8.87%</td>
+<td headers="Republic Airline (YX) stub_2_32 security.ct" class="gt_row gt_right gt_striped">8.35</td>
+<td headers="Republic Airline (YX) stub_2_32 security.ct_p" class="gt_row gt_right gt_striped">0.03%</td>
+<td headers="Republic Airline (YX) stub_2_32 late_aircraft.ct" class="gt_row gt_right gt_striped">2187.94</td>
+<td headers="Republic Airline (YX) stub_2_32 late_aircraft.ct_p" class="gt_row gt_right gt_striped">7.58%</td>
+<td headers="Republic Airline (YX) stub_2_32 arr.delay" class="gt_row gt_right gt_striped">427546</td>
+<td headers="Republic Airline (YX) stub_2_32 carrier.delay" class="gt_row gt_right gt_striped">78608</td>
+<td headers="Republic Airline (YX) stub_2_32 carrier.delay_p" class="gt_row gt_right gt_striped">18.39%</td>
+<td headers="Republic Airline (YX) stub_2_32 weather.delay" class="gt_row gt_right gt_striped">15920</td>
+<td headers="Republic Airline (YX) stub_2_32 weather.delay_p" class="gt_row gt_right gt_striped">3.72%</td>
+<td headers="Republic Airline (YX) stub_2_32 nas.delay" class="gt_row gt_right gt_striped">150751</td>
+<td headers="Republic Airline (YX) stub_2_32 nas.delay_p" class="gt_row gt_right gt_striped">35.26%</td>
+<td headers="Republic Airline (YX) stub_2_32 security.delay" class="gt_row gt_right gt_striped">313</td>
+<td headers="Republic Airline (YX) stub_2_32 security.delay_p" class="gt_row gt_right gt_striped">0.07%</td>
+<td headers="Republic Airline (YX) stub_2_32 late_aircraft.delay" class="gt_row gt_right gt_striped">181954</td>
+<td headers="Republic Airline (YX) stub_2_32 late_aircraft.delay_p" class="gt_row gt_right gt_striped">42.56%</td></tr>
+    <tr><th id="airports_33" scope="row" class="gt_row gt_right gt_stub">2020</th>
+<td headers="Republic Airline (YX) airports_33 airports" class="gt_row gt_right">93</td>
+<td headers="Republic Airline (YX) airports_33 arr_flights.ct" class="gt_row gt_right">21257</td>
+<td headers="Republic Airline (YX) airports_33 normal.ct" class="gt_row gt_right">19042</td>
+<td headers="Republic Airline (YX) airports_33 normal.ct_p" class="gt_row gt_right">89.58%</td>
+<td headers="Republic Airline (YX) airports_33 arr_cancelled.ct" class="gt_row gt_right">311</td>
+<td headers="Republic Airline (YX) airports_33 arr_cancelled.ct_p" class="gt_row gt_right">1.46%</td>
+<td headers="Republic Airline (YX) airports_33 arr_diverted.ct" class="gt_row gt_right">13</td>
+<td headers="Republic Airline (YX) airports_33 arr_diverted.ct_p" class="gt_row gt_right">0.06%</td>
+<td headers="Republic Airline (YX) airports_33 arr_del15.ct" class="gt_row gt_right">1891</td>
+<td headers="Republic Airline (YX) airports_33 arr_del15.ct_p" class="gt_row gt_right">8.90%</td>
+<td headers="Republic Airline (YX) airports_33 carrier.ct" class="gt_row gt_right">691.99</td>
+<td headers="Republic Airline (YX) airports_33 carrier.ct_p" class="gt_row gt_right">3.26%</td>
+<td headers="Republic Airline (YX) airports_33 weather.ct" class="gt_row gt_right">69.43</td>
+<td headers="Republic Airline (YX) airports_33 weather.ct_p" class="gt_row gt_right">0.33%</td>
+<td headers="Republic Airline (YX) airports_33 nas.ct" class="gt_row gt_right">765.90</td>
+<td headers="Republic Airline (YX) airports_33 nas.ct_p" class="gt_row gt_right">3.60%</td>
+<td headers="Republic Airline (YX) airports_33 security.ct" class="gt_row gt_right">11.34</td>
+<td headers="Republic Airline (YX) airports_33 security.ct_p" class="gt_row gt_right">0.05%</td>
+<td headers="Republic Airline (YX) airports_33 late_aircraft.ct" class="gt_row gt_right">352.38</td>
+<td headers="Republic Airline (YX) airports_33 late_aircraft.ct_p" class="gt_row gt_right">1.66%</td>
+<td headers="Republic Airline (YX) airports_33 arr.delay" class="gt_row gt_right">113676</td>
+<td headers="Republic Airline (YX) airports_33 carrier.delay" class="gt_row gt_right">51931</td>
+<td headers="Republic Airline (YX) airports_33 carrier.delay_p" class="gt_row gt_right">45.68%</td>
+<td headers="Republic Airline (YX) airports_33 weather.delay" class="gt_row gt_right">7736</td>
+<td headers="Republic Airline (YX) airports_33 weather.delay_p" class="gt_row gt_right">6.81%</td>
+<td headers="Republic Airline (YX) airports_33 nas.delay" class="gt_row gt_right">26857</td>
+<td headers="Republic Airline (YX) airports_33 nas.delay_p" class="gt_row gt_right">23.63%</td>
+<td headers="Republic Airline (YX) airports_33 security.delay" class="gt_row gt_right">392</td>
+<td headers="Republic Airline (YX) airports_33 security.delay_p" class="gt_row gt_right">0.34%</td>
+<td headers="Republic Airline (YX) airports_33 late_aircraft.delay" class="gt_row gt_right">26760</td>
+<td headers="Republic Airline (YX) airports_33 late_aircraft.delay_p" class="gt_row gt_right">23.54%</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</body>
+</html>
